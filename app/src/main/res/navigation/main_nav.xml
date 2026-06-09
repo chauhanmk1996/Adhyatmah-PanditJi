@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.app.panditji.ui.dashboard.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_revenueFragment"
+            app:destination="@id/revenueFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.app.panditji.ui.dashboard.booking.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" >
+        <action
+            android:id="@+id/action_bookingFragment_to_upcomingBookingDetailsFragment"
+            app:destination="@id/upcomingBookingDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.app.panditji.ui.dashboard.settings.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/revenueFragment"
+        android:name="com.app.panditji.ui.fragment.RevenueFragment"
+        android:label="RevenueFragment"
+        tools:layout="@layout/fragment_revenue"/>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.app.panditji.ui.dashboard.settings.EditProfileFragment"
+        android:label="EditProfileFragment"
+        tools:layout="@layout/fragment_edit_profile"/>
+    <fragment
+        android:id="@+id/upcomingBookingDetailsFragment"
+        android:name="com.app.panditji.ui.fragment.UpcomingBookingDetailsFragment"
+        android:label="UpcomingBookingDetailsFragment"
+        tools:layout="@layout/fragment_upcoming_booking_details"/>
+    <fragment
+        android:id="@+id/upcomingBookingsFragment"
+        android:name="com.app.panditji.ui.dashboard.booking.UpcomingBookingsFragment"
+        android:label="UpcomingBookingsFragment"
+        tools:layout="@layout/fragment_upcoming_bookings">
+        <action
+            android:id="@+id/action_upcomingBookingsFragment_to_upcomingBookingDetailsFragment"
+            app:destination="@id/upcomingBookingDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ongoingBookingFragment"
+        android:name="com.app.panditji.ui.dashboard.booking.OngoingBookingFragment"
+        android:label="OngoingBookingFragment"
+        tools:layout="@layout/fragment_ongoing_booking">
+        <action
+            android:id="@+id/action_ongoingBookingFragment_to_upcomingBookingDetailsFragment"
+            app:destination="@id/upcomingBookingDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/previousBookingFragment"
+        android:name="com.app.panditji.ui.dashboard.booking.PreviousBookingFragment"
+        android:label="PreviousBookingFragment"
+        tools:layout="@layout/fragment_previous_booking">
+        <action
+            android:id="@+id/action_previousBookingFragment_to_upcomingBookingDetailsFragment"
+            app:destination="@id/upcomingBookingDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pendingBookingFragment"
+        android:name="com.app.panditji.ui.dashboard.booking.PendingBookingFragment"
+        android:label="PendingBookingFragment" >
+        <action
+            android:id="@+id/action_pendingBookingFragment_to_upcomingBookingDetailsFragment"
+            app:destination="@id/upcomingBookingDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.app.panditji.ui.dashboard.settings.ContactUsFragment"
+        android:label="ContactUsFragment" />
+    <fragment
+        android:id="@+id/termConditionFragment"
+        android:name="com.app.panditji.ui.dashboard.settings.TermConditionFragment"
+        android:label="TermConditionFragment" />
+    <fragment
+        android:id="@+id/helpSupportFragment"
+        android:name="com.app.panditji.ui.dashboard.settings.HelpSupportFragment"
+        android:label="HelpSupportFragment" />
+    <fragment
+        android:id="@+id/chooseLanguageFragment"
+        android:name="com.app.panditji.ui.dashboard.settings.ChooseLanguageFragment"
+        android:label="ChooseLanguageFragment" />
+
+
+</navigation>

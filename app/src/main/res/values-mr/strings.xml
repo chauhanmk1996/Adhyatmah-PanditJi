@@ -1,0 +1,353 @@
+<resources>
+
+    <string-array name="City">
+        <item>शहर1</item>
+        <item>शहर1</item>
+        <item>शहर1</item>
+        <item>शहर1</item>
+    </string-array>
+
+    <string-array name="Court">
+        <item>कोर्ट १</item>
+        <item>कोर्ट २</item>
+        <item>कोर्ट ३</item>
+        <item>कोर्ट ४</item>
+    </string-array>
+
+    <string-array name="Days">
+        <item>दिवस निवडा</item>
+        <item>सोमवार</item>
+        <item>मंगळवार</item>
+        <item>बुधवार</item>
+        <item>गुरुवार</item>
+        <item>शुक्रवार</item>
+        <item>शनिवार</item>
+        <item>रविवार</item>
+    </string-array>
+
+    <string-array name="Sports">
+        <item>क्रिकेट</item>
+        <item>बास्केटबॉल</item>
+        <item>बॅडमिंटन</item>
+        <item>फुटबॉल</item>
+    </string-array>
+
+    <string name="app_name">अध्यात्म पंडित जी</string>
+    <string name="tv_language">भाषा</string>
+    <string name="choose_your_language">तुमची भाषा निवडा</string>
+    <string name="please_select_your_preferred_language">कृपया तुमची पसंतीची भाषा निवडा</string>
+    <string name="tv_continue">पुढे जा</string>
+    <string name="Continue_with">यासह सुरू ठेवा</string>
+    <string name="or">किंवा</string>
+    <string name="log_in_with">यासह लॉगिन करा</string>
+    <string name="by_signing_up_you_agree_with_delight_s_privacy_policy_and_terms_amp_conditions"><![CDATA[साइन अप करून तुम्ही पेप्स्टरच्या \n गोपनीयता धोरण आणि अटी व शर्तींशी सहमत आहात]]></string>
+    <string name="otp_sent">OTP पाठवला गेला</string>
+    <string name="enter_valid_otp">कृपया वैध OTP प्रविष्ट करा</string>
+    <string name="tv_submit">सबमिट करा</string>
+    <string name="phone_number">मोबाईल नंबर</string>
+    <string name="resend_otp">OTP पुन्हा पाठवा</string>
+    <string name="didnt_receive_otp">OTP मिळाला नाही?</string>
+    <string name="enter_otp">OTP प्रविष्ट करा</string>
+    <string name="hello_blank_fragment">हॅलो ब्लँक फ्रॅगमेंट</string>
+    <string name="tv_sign_in">साइन इन</string>
+    <string name="tv_please_sign_in_to_continue">कृपया सुरू ठेवण्यासाठी साइन इन करा.</string>
+    <string name="tv_mobile_number">मोबाईल नंबर</string>
+    <string name="tv_password">पासवर्ड</string>
+    <string name="password_stars">**********</string>
+    <string name="forgot_password">पासवर्ड विसरलात?</string>
+    <string name="remember_me">मला लक्षात ठेवा</string>
+    <string name="sign_in">साइन इन</string>
+    <string name="or_login_with">किंवा, यासह लॉगिन करा</string>
+    <string name="don_t_have_an_account">खाते नाही? नोंदणी करा</string>
+    <string name="register">नोंदणी</string>
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
+    <string name="tv_create_account">खाते तयार करा</string>
+    <string name="tv_create_an_account_to_get_all_features">सर्व वैशिष्ट्ये मिळवण्यासाठी खाते तयार करा.</string>
+    <string name="tv_full_name">पूर्ण नाव</string>
+    <string name="tv_email">ईमेल</string>
+    <string name="tv_phone_number">फोन नंबर</string>
+    <string name="tv_confirm_password">पासवर्ड कन्फर्म करा</string>
+    <string name="already_have_an_account">आधीपासून खाते आहे? साइन इन</string>
+    <string name="tv_otp_verify">OTP सत्यापन</string>
+    <string name="tv_verification">सत्यापन</string>
+    <string name="enter_the_verification_code_we_just_sent_you_on_your_email_phone_number">आम्ही तुमच्या ईमेल/फोन नंबरवर पाठवलेला सत्यापन कोड प्रविष्ट करा</string>
+    <string name="old_password">जुना पासवर्ड</string>
+    <string name="verify">सत्यापित करा</string>
+    <string name="didn_t_recieve_a_code">कोड मिळाला नाही? पुन्हा पाठवा</string>
+    <string name="tv_next">पुढे</string>
+    <string name="log_in">लॉगिन</string>
+    <string name="tv_profile">प्रोफाइल</string>
+    <string name="tv_i_agree_terms_conditions"><![CDATA[मी अटी व शर्तींशी सहमत आहे.]]></string>
+    <string name="add_new_address">+ नवीन पत्ता जोडा</string>
+    <string name="tv_edit">संपादित करा</string>
+    <string name="tv_deliver_to">येथे डिलिव्हर करा:</string>
+    <string name="tv_country_or_region">देश किंवा प्रदेश</string>
+    <string name="tv_street_address">रस्त्याचा पत्ता</string>
+    <string name="tv_street_address_2_optional">रस्त्याचा पत्ता २ (पर्यायी)</string>
+    <string name="tv_state">राज्य</string>
+    <string name="tv_city">शहर</string>
+    <string name="tv_zip_code">पिन कोड</string>
+    <string name="home">होम</string>
+    <string name="categories">कॅटेगरी</string>
+    <string name="my_order">माझे ऑर्डर</string>
+    <string name="profile">प्रोफाइल</string>
+    <string name="yes">होय</string>
+    <string name="cancel">रद्द करा</string>
+    <string name="skip">स्किप</string>
+    <string name="welcome_let_s_create_your_account">स्वागत आहे!\nचला तुमचे खाते तयार करूया</string>
+    <string name="enter_name">नाव प्रविष्ट करा</string>
+    <string name="enter_phone_number">मोबाईल नंबर प्रविष्ट करा</string>
+    <string name="umpire_trainer">अंपायर/ट्रेनर</string>
+    <string name="venue_owner">व्हेन्यू मालक</string>
+    <string name="register_as">याप्रमाणे नोंदणी करा:</string>
+    <string name="sign_up">साइन अप</string>
+    <string name="booking">बुकिंग</string>
+    <string name="venue">व्हेन्यू</string>
+    <string name="no_data_found">कोणताही डेटा सापडला नाही</string>
+    <string name="name">नाव</string>
+    <string name="you_have_upcoming_bookings">तुमच्याकडे आगामी बुकिंग्स आहेत</string>
+    <string name="venue_name">व्हेन्यूचे नाव</string>
+    <string name="description">वर्णन</string>
+    <string name="describe_your_venue">तुमच्या व्हेन्यूचे वर्णन करा</string>
+    <string name="set_location">लोकेशन सेट करा</string>
+    <string name="state">राज्य</string>
+    <string name="amenities">सुविधा</string>
+    <string name="add_amenities">सुविधा जोडा</string>
+    <string name="save">जतन करा</string>
+    <string name="location">लोकेशन</string>
+    <string name="address">पत्ता</string>
+    <string name="near_scottish_high_international_school_block_g_sushant_lok_2_sector_57_gurugram_haryana_122003">स्कॉटिश हाय इंटरनॅशनल स्कूलजवळ, ब्लॉक G, सुषांत लोक २, सेक्टर ५७, गुरुग्राम, हरियाणा १२२००३</string>
+    <string name="ground_court_name">ग्राउंड/कोर्ट नाव</string>
+    <string name="enter_ground_court_name">ग्राउंड/कोर्ट नाव प्रविष्ट करा</string>
+    <string name="add_slots">स्लॉट्स जोडा</string>
+    <string name="add">जोडा</string>
+    <string name="add_paid_services">पेड सर्व्हिसेस जोडा</string>
+    <string name="back_button">मागे बटण</string>
+    <string name="service_name">सेवेचे नाव</string>
+    <string name="enter_service_name">सेवेचे नाव प्रविष्ट करा</string>
+    <string name="enter_description">वर्णन प्रविष्ट करा</string>
+    <string name="price">किंमत</string>
+    <string name="enter_price">किंमत प्रविष्ट करा</string>
+    <string name="service_summary">सेवा सारांश</string>
+    <string name="login">लॉगिन</string>
+    <string name="enter_email">ईमेल प्रविष्ट करा</string>
+    <string name="verification">सत्यापन</string>
+    <string name="paid_services">पेड सर्व्हिसेस</string>
+    <string name="search">शोधा...</string>
+    <string name="select_court">कोर्ट निवडा</string>
+    <string name="select_sport">खेळ निवडा</string>
+    <string name="select_date">तारीख निवडा</string>
+    <string name="proceed">पुढे जा</string>
+    <string name="by_selecting_the_button_below_i_agree_to_the_stadium_rules_cancellation_policy_term_condition_i_also_agree_to_pay_the_total_amount_shown_which_includes_service_fees"><![CDATA[खालील बटण निवडून, मी स्टेडियम नियम, रद्द करण्याची धोरण, अटी व शर्तींशी सहमत आहे. मी दाखवलेली एकूण रक्कम (सर्व्हिस फी समाविष्ट) देण्यास सहमत आहे.]]></string>
+    <string name="you_will_be_redirected_to_your_bank_s_website_it_might_take_a_few_seconds_please_do_not_refresh_the_page_or_click_the_back_or_close_button_of_your_browser">तुम्हाला तुमच्या बँकेच्या वेबसाइटवर रीडायरेक्ट केले जाईल. यास काही सेकंद लागू शकतात. कृपया पेज रिफ्रेश करू नका किंवा ब्राउझरचे बॅक/क्लोज बटण क्लिक करू नका.</string>
+    <string name="termandconditiondata">गोपनीयता धोरण हे कायदेशीर दस्तऐवज आहे जे संस्था वापरकर्त्याचा डेटा कसा गोळा करते, वापरते आणि संरक्षित करते हे स्पष्ट करते...</string>
+    <string name="privacy_data">गोपनीयता धोरण हे कायदेशीर दस्तऐवज आहे जे संस्था वापरकर्त्याचा डेटा कसा गोळा करते, वापरते आणि संरक्षित करते हे स्पष्ट करते...</string>
+    <string name="notification">सूचना</string>
+    <string name="view_venue_details">व्हेन्यू तपशील पहा</string>
+    <string name="lorem_ipsum_is_simply_dummy_text_of_the_printing_and_typesetting_industry">लोरेम इप्सम हे प्रिंटिंग आणि टाइपसेटिंग उद्योगातील साधे डमी मजकूर आहे.</string>
+    <string name="now">आता</string>
+    <string name="booked">बुक केलेले</string>
+    <string name="free">मोफत</string>
+    <string name="hold">होल्ड</string>
+    <string name="water_bottle">पाण्याची बाटली</string>
+    <string name="are_you_sure">तुम्हाला खात्री आहे?</string>
+    <string name="payment_share_floater_htmlwvre">पेमेंट/शेअर.फ्लोटर/htmlwvre</string>
+    <string name="share_link_to_accept_payment">पेमेंट स्वीकारण्यासाठी लिंक शेअर करा</string>
+    <string name="slot_will_be_on_hold_only_for_10_minutes_after_first_payment_please_pay_full_amount_in_10_minutes_to_confirm_booking_nafter_full_payment_link_will_be_automatically_disabled">पहिल्या पेमेंटनंतर स्लॉट फक्त १० मिनिटांसाठी होल्डवर राहील. बुकिंग कन्फर्म करण्यासाठी १० मिनिटांत पूर्ण रक्कम भरा.\nपूर्ण पेमेंटनंतर लिंक आपोआप डिसेबल होईल.</string>
+    <string name="split_with_your_team_members">तुमच्या टीम सदस्यांसोबत विभाजित करा</string>
+    <string name="pay">पेमेंट करा</string>
+    <string name="pay_full_amount">पूर्ण रक्कम भरा</string>
+    <string name="payment">पेमेंट</string>
+    <string name="total_amount">एकूण रक्कम</string>
+    <string name="payment_status">पेमेंट स्थिती</string>
+    <string name="_00_00">₹00.00</string>
+    <string name="received_amount">प्राप्त रक्कम</string>
+    <string name="pending_amount">प्रलंबित रक्कम</string>
+    <string name="profiles">प्रोफाइल</string>
+    <string name="app_id">1:493964025135:android:ce4ac0abddd6cbea2c55da</string>
+    <string name="default_web_client_id">493964025135-5h2epmp1vpi4hsn433gj1c3uaijnaat0.apps.googleusercontent.com</string>
+    <string name="enter_your_mobile_number">तुमचा मोबाईल नंबर प्रविष्ट करा</string>
+    <string name="enter_mobile_number">मोबाईल नंबर प्रविष्ट करा</string>
+    <string name="_8651603254">8651603254</string>
+    <string name="previous">मागील</string>
+    <string name="otp_verify">OTP सत्यापन</string>
+    <string name="verify_your_number">तुमचा नंबर सत्यापित करा</string>
+    <string name="enter_your_otp_code_below">खाली तुमचा OTP कोड प्रविष्ट करा</string>
+    <string name="signup">साइन अप</string>
+    <string name="signups">साइन अप</string>
+    <string name="resend_a_new_code">नवीन कोड पुन्हा पाठवा</string>
+    <string name="pandit_ji">अध्यात्म पंडित जी</string>
+    <string name="your_bookings">तुमच्या बुकिंग्स</string>
+    <string name="my_bookings">माझ्या बुकिंग्स</string>
+    <string name="upcoming_bookings">आगामी बुकिंग्स</string>
+    <string name="view_all">सर्व पहा</string>
+    <string name="revenue">महसूल</string>
+    <string name="hanuman_puja">हनुमान पूजा</string>
+    <string name="_20_08_2025_11_50_45">२०/०८/२०२५ ११:५०:४५</string>
+    <string name="sector_12_dwarka">सेक्टर १२, द्वारका</string>
+    <string name="booking_id_123546567895">बुकिंग आयडी: #123546567895</string>
+    <string name="no_available">कोणतेही स्लॉट उपलब्ध नाहीत</string>
+    <string name="_18_august_2025_7_am">१८ ऑगस्ट २०२५, सकाळी ७ वाजता</string>
+    <string name="inr_3000">INR ३०००</string>
+    <string name="revenues">महसूल</string>
+    <string name="about">आमच्याबद्दल</string>
+    <string name="update_profile">प्रोफाइल अपडेट करा</string>
+    <string name="please_select_language">कृपया भाषा निवडा:</string>
+    <string name="language">भाषा</string>
+    <string name="others">इतर</string>
+    <string name="tamil">तामिळ</string>
+    <string name="services">सेवा</string>
+    <string name="please_select_services">कृपया सेवा निवडा:</string>
+    <string name="sign_out_from_app">अ‍ॅपमधून साइन आउट करा</string>
+    <string name="sign_out">साइन आउट</string>
+    <string name="are_you_sure_you_would_like_to_sign_out_of_your_panditji_app">तुम्हाला तुमच्या पंडितजी अ‍ॅपमधून साइन आउट करायचे आहे का?</string>
+    <string name="full_name">पूर्ण नाव</string>
+    <string name="upcoming_booking">आगामी बुकिंग</string>
+    <string name="puja">पूजा: </string>
+    <string name="addresss">पत्ता:</string>
+    <string name="puja_samagri">पूजा सामग्री:</string>
+    <string name="incense_ghee_clarified_butter_flowers_and_leaves_sandalwood_powder_fruits_and_sweets_other_herbs_and_ingredients_utensils_pots_pans_spoons_etc_mantra_books_and_religious_texts_dakshina">धूप, तूप, फुले आणि पाने, चंदन पावडर, फळे आणि मिठाई, इतर औषधी व सामग्री, भांडी: भांडे, कढई, चमचे इ., मंत्र पुस्तके आणि धार्मिक ग्रंथ, दक्षिणा.</string>
+    <string name="time_and_date">वेळ आणि तारीख</string>
+    <string name="fees">फी:</string>
+    <string name="total_fees_1100">एकूण फी : </string>
+    <string name="remaining_amount_600">उर्वरित रक्कम : </string>
+    <string name="prepaid_amount_500">प्रिपेड रक्कम : </string>
+    <string name="log_out">लॉग आउट</string>
+    <string name="help_and_support">मदत आणि सपोर्ट</string>
+    <string name="terms_amp_conditions"><![CDATA[अटी व शर्ती]]></string>
+    <string name="g_52_sector_63_rd_g_block_sector_63_noida_chotpur_uttar_pradesh_201309">G, ५२, सेक्टर ६३ रोड, G ब्लॉक, सेक्टर ६३, नोएडा, छोटपूर, उत्तर प्रदेश २०१३०९</string>
+    <string name="date_and_time">तारीख आणि वेळ</string>
+    <string name="_1_25_lakh_mantra">१.२५ लाख मंत्र</string>
+    <string name="accept">स्वीकारा</string>
+    <string name="decline">नाकारा</string>
+    <string name="complete">पूर्ण</string>
+    <string name="please_enter_your_email_address_you_will_receive_a_link_to_create_a_new_password_via_email">कृपया तुमचा ईमेल पत्ता प्रविष्ट करा. तुम्हाला नवीन पासवर्ड तयार करण्यासाठी ईमेलद्वारे लिंक मिळेल.</string>
+    <string name="send">पाठवा</string>
+    <string name="terms_of_services">सेवा अटी</string>
+    <string name="about_us">आमच्याबद्दल</string>
+    <string name="privacy_policy">गोपनीयता धोरण</string>
+    <string name="delete_account">खाते हटवा</string>
+    <string name="are_you_sure_you_want_to_delete_your_account_this_action_cannot_be_undone">तुम्हाला तुमचे खाते हटवायचे आहे का? ही क्रिया रद्द करता येणार नाही.</string>
+    <string name="delete">हटवा</string>
+    <string name="address_landmark"><![CDATA[पत्ता आणि लँडमार्क]]></string>
+    <string name="welcome_to_panditji_app">पंडितजी अ‍ॅपमध्ये स्वागत आहे</string>
+    <string name="open_camera">📸 कॅमेरा उघडा</string>
+    <string name="open_gallery">🖼️ गॅलरी उघडा</string>
+    <string name="contact_us">आमच्याशी संपर्क साधा</string>
+    <string name="introduction">परिचय</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="gmail">Gmail</string>
+    <string name="instagram">Instagram</string>
+    <string name="edit_profile">प्रोफाइल संपादित करा</string>
+    <string name="first_name">पहिले नाव</string>
+    <string name="enter_your_first_name">तुमचे पहिले नाव प्रविष्ट करा</string>
+    <string name="last_name">आडनाव</string>
+    <string name="enter_your_last_name">तुमचे आडनाव प्रविष्ट करा</string>
+    <string name="gotra">गोत्र</string>
+    <string name="enter_your_gotra">तुमचे गोत्र प्रविष्ट करा</string>
+    <string name="prawar">प्रवर</string>
+    <string name="enter_prawar">प्रवर प्रविष्ट करा</string>
+    <string name="gender">लिंग</string>
+    <string name="dob">जन्मतारीख</string>
+    <string name="select_date_of_birth">जन्मतारीख निवडा</string>
+    <string name="veda">वेद</string>
+    <string name="enter_veda">वेद प्रविष्ट करा</string>
+    <string name="pankti">पंक्ती</string>
+    <string name="enter_pankti">पंक्ती प्रविष्ट करा</string>
+    <string name="shakha">शाखा</string>
+    <string name="enter_shakha">शाखा प्रविष्ट करा</string>
+    <string name="sutra">सूत्र</string>
+    <string name="enter_sutra">सूत्र प्रविष्ट करा</string>
+    <string name="enter_you_number">तुमचा नंबर प्रविष्ट करा</string>
+    <string name="email">ईमेल</string>
+    <string name="enter_your_email_address">तुमचा ईमेल पत्ता प्रविष्ट करा</string>
+    <string name="enter_about">आमच्याबद्दल प्रविष्ट करा</string>
+    <string name="upload_aadhaar_card">आधार कार्ड अपलोड करा</string>
+    <string name="upload_aadhar">आधार अपलोड करा</string>
+    <string name="select_service">सेवा निवडा</string>
+    <string name="select_language">भाषा निवडा</string>
+    <string name="enter_address">पत्ता प्रविष्ट करा</string>
+    <string name="enter_your_state">तुमचे राज्य प्रविष्ट करा</string>
+    <string name="city">शहर</string>
+    <string name="enter_your_city">तुमचे शहर प्रविष्ट करा</string>
+    <string name="pincode">पिनकोड</string>
+    <string name="enter_your_pincode">तुमचा पिनकोड प्रविष्ट करा</string>
+    <string name="email_id">ईमेल आयडी</string>
+    <string name="faq_s_section"><![CDATA[वारंवार विचारले जाणारे प्रश्न आणि सपोर्ट]]></string>
+    <string name="password">पासवर्ड</string>
+    <string name="forgot_your_password">तुमचा पासवर्ड विसरलात?</string>
+    <string name="first_name_">पहिले नाव *</string>
+    <string name="last_name_">आडनाव *</string>
+    <string name="phone_number_">फोन नंबर *</string>
+    <string name="email_">ईमेल *</string>
+    <string name="password_">पासवर्ड *</string>
+    <string name="enter_your_password">तुमचा पासवर्ड प्रविष्ट करा</string>
+    <string name="already_have_an_account_login">आधीपासून खाते आहे? लॉगिन</string>
+    <string name="recent_booking">ताजे बुकिंग</string>
+    <string name="settings">सेटिंग्ज</string>
+    <string name="notifications">सूचना</string>
+    <string name="terms_and_conditions">अटी आणि शर्ती</string>
+    <string name="amount_paid">रक्कम भरली</string>
+    <string name="pending">प्रलंबित</string>
+    <string name="pooja_booked">पूजा बुक केली</string>
+    <string name="faq_support"><![CDATA[वारंवार विचारले जाणारे प्रश्न आणि सपोर्ट]]></string>
+    <string name="cancelled">रद्द केले</string>
+    <string name="pendings">प्रलंबित</string>
+    <string name="ongoing">चालू</string>
+    <string name="upcoming">आगामी</string>
+    <string name="select_your_services">तुमच्या सेवा निवडा</string>
+
+    <!-- Validation Errors -->
+    <string name="error_enter_first_name">कृपया तुमचे पहिले नाव प्रविष्ट करा</string>
+    <string name="error_enter_last_name">कृपया तुमचे आडनाव प्रविष्ट करा</string>
+    <string name="error_enter_email">कृपया तुमचा ईमेल प्रविष्ट करा</string>
+    <string name="error_invalid_email">कृपया वैध ईमेल प्रविष्ट करा</string>
+    <string name="error_enter_phone">कृपया तुमचा फोन नंबर प्रविष्ट करा</string>
+    <string name="error_select_gender">कृपया लिंग निवडा</string>
+    <string name="error_enter_about">कृपया आमच्याबद्दल तपशील प्रविष्ट करा</string>
+    <string name="error_enter_gotra">कृपया तुमचे गोत्र प्रविष्ट करा</string>
+    <string name="error_enter_prawar">कृपया प्रवरा प्रविष्ट करा</string>
+    <string name="error_select_dob">कृपया तुमची जन्मतारीख निवडा</string>
+    <string name="error_select_language">कृपया भाषा निवडा</string>
+    <string name="error_enter_veda">कृपया तुमचा वेद प्रविष्ट करा</string>
+    <string name="error_enter_pankti">कृपया तुमची पंक्ती प्रविष्ट करा</string>
+    <string name="error_enter_shakha">कृपया तुमची शाखा प्रविष्ट करा</string>
+    <string name="error_enter_sutra">कृपया तुमचे सूत्र प्रविष्ट करा</string>
+    <string name="error_enter_address">कृपया तुमचा पत्ता प्रविष्ट करा</string>
+    <string name="error_enter_state">कृपया तुमचे राज्य प्रविष्ट करा</string>
+    <string name="error_enter_city">कृपया तुमचे शहर प्रविष्ट करा</string>
+    <string name="error_enter_pincode">कृपया तुमचा पिनकोड प्रविष्ट करा</string>
+    <string name="error_select_at_least_one_language">कृपया किमान एक भाषा निवडा</string>
+    <string name="booking_id">बुकिंग आयडी:</string>
+    <string name="please_enter_your_email">कृपया तुमचा ईमेल प्रविष्ट करा</string>
+    <string name="invalid_email_format">अवैध ईमेल फॉरमॅट</string>
+    <string name="please_enter_your_password">कृपया तुमचा पासवर्ड प्रविष्ट करा</string>
+    <string name="password_must_be_at_least_6_characters">पासवर्ड किमान ६ अक्षरे असणे आवश्यक आहे</string>
+    <string name="don_t_have_an_account_sign_up">खाते नाही? साइन अप करा</string>
+    <string name="your_account_is_not_active_redirecting_to_registration">तुमचे खाते सक्रिय नाही. नोंदणीकडे रीडायरेक्ट करत आहे.</string>
+    <string name="please_enter_first_name">कृपया पहिले नाव प्रविष्ट करा</string>
+    <string name="please_enter_last_name">कृपया आडनाव प्रविष्ट करा</string>
+    <string name="please_enter_phone_number">कृपया फोन नंबर प्रविष्ट करा</string>
+    <string name="please_enter_email">कृपया ईमेल प्रविष्ट करा</string>
+    <string name="please_enter_valid_email">कृपया वैध ईमेल प्रविष्ट करा</string>
+    <string name="please_enter_password">कृपया पासवर्ड प्रविष्ट करा</string>
+    <string name="please_upload_aadhaar_image">कृपया आधार इमेज अपलोड करा</string>
+    <string name="already_have_an_account_sign_in">आधीपासून खाते आहे? साइन इन</string>
+        <string name="error_enter_country">कृपया तुमचा देश प्रविष्ट करा</string>
+        <string name="please_upload_profile_image">कृपया प्रोफाइल फोटो अपलोड करा</string>
+        <string name="error_enter_your_experience">कृपया तुमचा अनुभव प्रविष्ट करा</string>
+        <string name="error_enter_your_aadhar_number">कृपया तुमचा आधार क्रमांक प्रविष्ट करा</string>
+        <string name="enter_aadhar_number">आधार क्रमांक प्रविष्ट करा</string>
+        <string name="aadhar_number">आधार क्रमांक</string>
+        <string name="total_experience">एकूण अनुभव</string>
+        <string name="enter_total_experience">एकूण अनुभव प्रविष्ट करा</string>
+        <string name="or_">किंवा</string>
+        <string name="sign_in_using_otp">OTP वापरून साइन इन करा</string>
+        <string name="country">देश</string>
+        <string name="enter_your_country">तुमचा देश प्रविष्ट करा</string>
+        <string name="please_enter_otp">कृपया OTP प्रविष्ट करा</string>
+        <string name="resend_confirmation_code">पुष्टीकरण कोड पुन्हा पाठवा</string>
+        <string name="invalid_credentials">अवैध क्रेडेंशियल्स (माहिती चुकीची आहे).</string>
+
+</resources>

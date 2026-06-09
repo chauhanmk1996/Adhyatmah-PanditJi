@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/imageIntro"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/titleIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/twenty_four_sp"
+            android:paddingTop="16dp"
+            android:gravity="center"
+            android:fontFamily="@font/inter_semibold"/>
+
+        <TextView
+            android:id="@+id/descIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sixteen_sp"
+            android:paddingTop="8dp"
+            android:gravity="center"
+            android:textColor="#E98347"
+            android:fontFamily="@font/inter_semibold"/>
+
+    </LinearLayout>
+</layout>

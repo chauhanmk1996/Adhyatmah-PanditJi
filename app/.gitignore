@@ -1,0 +1,41 @@
+# Gradle files
+.gradle/
+build/
+**/build/
+!gradle-wrapper.jar
+
+# Local configuration files (sdk, signing keys, etc.)
+local.properties
+*.iml
+
+# Keystores
+*.jks
+*.keystore
+
+# Log files
+*.log
+
+# Android Studio
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.ap_
+output.json
+
+# Release builds
+app/release/
+**/release/
+release/
+
+# Unit test and instrumentation test reports
+test-output/
+reports/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Zip archives (exclude from pushes)
+*.zip

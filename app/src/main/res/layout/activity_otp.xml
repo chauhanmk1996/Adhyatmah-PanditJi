@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:fillViewport="true"
+        android:focusable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/ivBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/twenty"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvLanguage"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tvLanguage" />
+
+                    <TextView
+                        android:id="@+id/tvLanguage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/ten"
+                        android:gravity="center_horizontal"
+                        android:text="@string/tv_otp_verify"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/twenty_sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eighty_six"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                />
+
+            <TextView
+                android:id="@+id/tv_verification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/three_two_dp"
+                android:text="@string/tv_verification"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twenty_sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/ivLogo"
+                app:layout_constraintStart_toStartOf="@+id/ivLogo"
+                app:layout_constraintTop_toBottomOf="@+id/ivLogo">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_enterCode"
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/five_dp"
+                android:paddingTop="@dimen/ten"
+                android:text="@string/enter_the_verification_code_we_just_sent_you_on_your_email_phone_number"
+                android:textSize="@dimen/fourteen_sp"
+                android:gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/ivLogo"
+                app:layout_constraintStart_toStartOf="@+id/ivLogo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_verification" />
+
+            <com.app.panditji.utils.pinview.Pinview
+                android:id="@+id/pvOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sixteen_dp"
+                android:layout_marginTop="@dimen/fourty_eight"
+                android:layout_marginEnd="@dimen/sixteen_dp"
+                app:cursorVisible="true"
+                app:forceKeyboard="true"
+                app:hint=""
+                app:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_enterCode"
+                app:password="false"
+                app:pinBackground="@drawable/grey_outline"
+                app:pinHeight="50dp"
+                app:pinLength="6"
+                app:pinWidth="50dp"
+                app:splitWidth="@dimen/ten" />
+
+            <Button
+                android:id="@+id/btnVerify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="@dimen/fifty"
+                android:layout_marginEnd="48dp"
+                android:background="@color/app_color_second"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/ten"
+                android:text="@string/verify"
+                android:textAllCaps="false"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pvOtp" />
+
+
+            <ProgressBar
+                android:id="@+id/pbSimpleLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/btnVerify"
+                app:layout_constraintEnd_toEndOf="@id/btnVerify"
+                app:layout_constraintStart_toStartOf="@id/btnVerify"
+                app:layout_constraintTop_toTopOf="@id/btnVerify" />
+
+            <TextView
+                android:id="@+id/tv_notRecieve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:paddingStart="@dimen/twenty_four_dp"
+                android:paddingTop="@dimen/four_dp"
+                android:paddingEnd="@dimen/twenty_four_dp"
+                android:paddingBottom="@dimen/fifteen"
+                android:text="@string/didn_t_recieve_a_code"
+                android:textAlignment="center"
+                android:textColorHighlight="@color/grey"
+                android:textColorLink="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnVerify" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+</layout>

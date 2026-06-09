@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settingContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".ui.dashboard.settings.SettingsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTittle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:fontFamily="@font/roboto_semibold"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/ivBack"
+            app:layout_constraintBottom_toBottomOf="@id/ivBack"
+            app:layout_constraintTop_toTopOf="@id/ivBack" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/deleteAccountLayout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/clToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/deleteIcon"
+            android:layout_width="25dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/profile_delete"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/deleteText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_account"
+            android:textSize="16sp"
+            android:textColor="#272727"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toEndOf="@id/deleteIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/deleteArrow"
+            android:layout_marginStart="12dp" />
+
+        <ImageView
+            android:id="@+id/deleteArrow"
+            android:layout_width="25dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E3E3E3"
+        app:layout_constraintTop_toBottomOf="@id/deleteAccountLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Notification -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/NotificationLayout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@id/deleteAccountLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/notificationIcon"
+            android:layout_width="25dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/notification_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/notificationText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/notifications"
+            android:textSize="16sp"
+            android:textColor="#272727"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toEndOf="@id/notificationIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/deleteArrow1"
+            android:layout_marginStart="12dp" />
+
+        <ImageView
+            android:id="@+id/deleteArrow1"
+            android:layout_width="25dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_arrow_back"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E3E3E3"
+        app:layout_constraintTop_toBottomOf="@id/NotificationLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Terms and Conditions -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/termsAndConditionLayout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/NotificationLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/taskSquareImage"
+            android:layout_width="25dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/taskSquareText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/terms_and_conditions"
+            android:textSize="16sp"
+            android:textColor="#272727"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toEndOf="@id/taskSquareImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/deleteArrow2"
+            android:layout_marginStart="12dp" />
+
+        <ImageView
+            android:id="@+id/deleteArrow2"
+            android:layout_width="25dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E3E3E3"
+        app:layout_constraintTop_toBottomOf="@id/termsAndConditionLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Privacy Policy -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/privacyPolicyLayout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/termsAndConditionLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/privacyPolicyImage"
+            android:layout_width="25dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/privacyPolicyText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/privacy_policy"
+            android:textSize="16sp"
+            android:textColor="#272727"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toEndOf="@id/privacyPolicyImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/deleteArrow3"
+            android:layout_marginStart="12dp" />
+
+        <ImageView
+            android:id="@+id/deleteArrow3"
+            android:layout_width="25dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E3E3E3"
+        app:layout_constraintTop_toBottomOf="@id/privacyPolicyLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- About US -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/aboutUSLayout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/privacyPolicyLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/aboutUSImage"
+            android:layout_width="25dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/about_us_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/aboutUSText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/about_us"
+            android:textSize="16sp"
+            android:textColor="#272727"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toEndOf="@id/aboutUSImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/deleteArrow4"
+            android:layout_marginStart="12dp" />
+
+        <ImageView
+            android:id="@+id/deleteArrow4"
+            android:layout_width="25dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+

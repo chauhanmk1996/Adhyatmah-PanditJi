@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/services"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_semibold"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/please_select_services"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/black"
+            android:layout_marginTop="15dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/sportText"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvHindi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rudrabhishek Puja"
+                android:fontFamily="@font/inter"
+                android:textColor="@color/black"
+                android:padding="@dimen/_10sdp"
+                android:gravity="start|center"
+                android:drawableEnd="@drawable/radio_button_checked"
+                android:background="@drawable/bg_box_select_language_7sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <TextView
+                android:id="@+id/tvMarathi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hanuman Janmotsav Puja"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/inter"
+                android:textColor="@color/black"
+                android:padding="@dimen/_10sdp"
+                android:gravity="start|center"
+                android:drawableEnd="@drawable/radio_button_unchecked"
+                android:background="@drawable/bg_box_select_language_7sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <TextView
+                android:id="@+id/tvTelgu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ram Navami Puja"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/inter"
+                android:textColor="@color/black"
+                android:padding="@dimen/_10sdp"
+                android:gravity="start|center"
+                android:drawableEnd="@drawable/radio_button_unchecked"
+                android:background="@drawable/bg_box_select_language_7sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <TextView
+                android:id="@+id/tvTamil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gaytri Mantra Puja"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/inter"
+                android:textColor="@color/black"
+                android:padding="@dimen/_10sdp"
+                android:gravity="start|center"
+                android:drawableEnd="@drawable/radio_button_unchecked"
+                android:background="@drawable/bg_box_select_language_7sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <TextView
+                android:id="@+id/tvOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/others"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:fontFamily="@font/inter"
+                android:textColor="@color/black"
+                android:padding="@dimen/_10sdp"
+                android:gravity="start|center"
+                android:drawableEnd="@drawable/radio_button_unchecked"
+                android:background="@drawable/bg_box_select_language_7sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+        </LinearLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdd"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/add"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="16sp"
+            android:backgroundTint="@color/app_color_second"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </LinearLayout>
+</layout>
+

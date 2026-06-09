@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+<!--        <item name="android:background">@drawable/top_left_radius</item>-->
+        <item name="android:paddingVertical">@dimen/ten</item>
+        <item name="android:paddingHorizontal">@dimen/twenty_dp</item>
+    </style>
+</resources>

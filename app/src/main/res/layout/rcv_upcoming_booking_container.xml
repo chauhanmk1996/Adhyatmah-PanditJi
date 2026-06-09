@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardUpcomingContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/sixteen"
+    app:cardElevation="5dp"
+    android:elevation="5dp"
+    app:cardBackgroundColor="@color/white"
+    android:layout_marginTop="@dimen/_6sdp"
+    android:layout_marginBottom="@dimen/_6sdp"
+    android:layout_marginStart="2dp"
+    android:layout_marginEnd="3dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:padding="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvBookingId"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="40dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/profile_image"
+                android:background="@drawable/circular"
+                app:layout_constraintTop_toBottomOf="@+id/tvId"
+                app:layout_constraintStart_toStartOf="@+id/tvId">
+                <ImageView
+                    android:id="@+id/ivProf"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/pamdit_ji"
+                    android:background="@drawable/circular" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvUserFullName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="@string/name"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:id="@+id/tvCreateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvHanumanPuja"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pooja"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+</layout>
+
+

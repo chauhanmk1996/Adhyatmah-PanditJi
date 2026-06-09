@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1084842681826",
+    "project_id": "adhyatmah-c00f7",
+    "storage_bucket": "adhyatmah-c00f7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084842681826:android:ab02d0757678a96c7645bb",
+        "android_client_info": {
+          "package_name": "com.app.adhyatmah"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJD13B0BDDrEh1fZE53aCmFJyZ48SXW5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084842681826:android:1c3718fe4c1b0f117645bb",
+        "android_client_info": {
+          "package_name": "com.app.adhyatmahpanditji"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJD13B0BDDrEh1fZE53aCmFJyZ48SXW5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
