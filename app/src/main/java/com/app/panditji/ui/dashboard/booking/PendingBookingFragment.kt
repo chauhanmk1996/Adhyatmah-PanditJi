@@ -43,7 +43,7 @@ class PendingBookingFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentPendingBookingBinding.inflate(layoutInflater)
         getBookingList()
@@ -53,24 +53,30 @@ class PendingBookingFragment : Fragment() {
     fun refresh() {
         getBookingList()
     }
+
     private fun loadRcvBooking(list: List<GetBookingResponse.Payload.Booking>) {
         previousBookingAdapter = BookingListAdapter(
             requireActivity(),
             AppConstants.PENDING,
             list.toMutableList()
         ) { click, data ->
-            when(click){
+            when (click) {
                 0 -> {
                     val bundle = Bundle()
                     bundle.putString("from", AppConstants.PENDING)
                     bundle.putParcelable("data", data)
-                    findNavController().navigate(R.id.action_bookingFragment_to_upcomingBookingDetailsFragment, bundle)
+                    findNavController().navigate(
+                        R.id.action_bookingFragment_to_upcomingBookingDetailsFragment,
+                        bundle
+                    )
                 }
+
                 1 -> {
                     // Accept button clicked
                     Log.d("TAG", "Accept button clicked for booking ID: ${data.bookingID}")
                     changeBookingStatus("accept", data._id)
                 }
+
                 2 -> {
                     // Reject button clicked
                     Log.d("TAG", "Reject button clicked for booking ID: ${data.bookingID}")
@@ -83,29 +89,18 @@ class PendingBookingFragment : Fragment() {
 
     private fun getBookingList() {
         if (!isAdded || view == null) return  // ✅ guard against detached fragment
-
         showProgress()
-        apiVm.getBookings("pending", prefs.token)
-            .observe(
-                viewLifecycleOwner
-            ) { it ->
+        apiVm.getBookings("pending", prefs.token).observe(viewLifecycleOwner) {
                 println("UjjwalGupta:$it")
                 when (it) {
                     is Resource.Success -> {
                         progressBar?.dismiss()
                         val data = it.data?.payload?.bookings
-//                        upComingBookingAdapter.setData(data?.bookings)
-
                         Log.d("TAG", "listData $data")
                         if (data?.isNotEmpty() == true) {
                             loadRcvBooking(it.data.payload.bookings)
-
                             binding.rcvOnGoing.visibility = View.VISIBLE
                             binding.tvNoSlots.visibility = View.GONE
-
-//                            bookingList.clear()
-//                            bookingList.addAll(data)
-//                            upComingBookingAdapter.setData(bookingList)
                         } else {
                             binding.tvNoSlots.visibility = View.VISIBLE
                             binding.rcvOnGoing.visibility = View.GONE
@@ -118,7 +113,6 @@ class PendingBookingFragment : Fragment() {
                             is NoConnectionException -> {
                                 requireActivity().toast("No Internet")
                             }
-
                             else -> {
                                 Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.errorCode}")
                                 Log.e(
@@ -148,7 +142,7 @@ class PendingBookingFragment : Fragment() {
             bookingId = bookingID,
             status = status
         )
-        apiVm.updateBookingStatus( prefs.token, request)
+        apiVm.updateBookingStatus(prefs.token, request)
             .observe(
                 viewLifecycleOwner
             ) { it ->
@@ -165,7 +159,7 @@ class PendingBookingFragment : Fragment() {
 //
 //                            binding.rcvOnGoing.visibility = View.VISIBLE
 //                            binding.tvNoSlots.visibility = View.GONE
-                            getBookingList()
+                        getBookingList()
 //                        } else {
 //                            binding.tvNoSlots.visibility = View.VISIBLE
 //                            binding.rcvOnGoing.visibility = View.GONE
@@ -199,6 +193,7 @@ class PendingBookingFragment : Fragment() {
                 }
             }
     }
+
     private fun showProgress() {
         if (!isAdded || view == null) return  // ✅ guard
         if (progressBar == null) {
@@ -208,136 +203,16 @@ class PendingBookingFragment : Fragment() {
             progressBar?.show()  // ✅ only show if not already showing
         }
     }
+
     private fun dismissProgress() {
         if (progressBar?.isShowing == true) {
             progressBar?.dismiss()
         }
         progressBar = null
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         dismissProgress() // ✅ prevents leaked dialog when swiping away during load
     }
-
 }
-//class PendingBookingFragment : Fragment() {
-//    private lateinit var binding: FragmentPendingBookingBinding
-//    val setList = mutableListOf<IntroSlideData>()
-//    private lateinit var previousBookingAdapter: BookingListAdapter
-//    private val prefs by inject<PrefsHelper>()
-//    private var progressBar: Dialog? = null
-//    private val viewModel by viewModel<BookingViewModel>()
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        binding = FragmentPendingBookingBinding.inflate(layoutInflater)
-//        getBookingList()
-//        observeBookings()
-//        return binding.root
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//    }
-//    private fun observeBookings() {
-//        viewModel.getBookings().observe(viewLifecycleOwner) { resource ->
-//            when (resource.status) {
-//                Status.SUCCESS -> {
-//                    progressBar?.dismiss()
-//                    val data = resource.data?.payload?.bookings
-////                        upComingBookingAdapter.setData(data?.bookings)
-//
-//                    Log.d("TAG", "listData $data")
-//                    if (data?.isNotEmpty() == true) {
-//                        loadRcvBooking(resource.data.payload.bookings)
-//
-//                        binding.rcvOnGoing.visibility = View.VISIBLE
-//                        binding.tvNoSlots.visibility = View.GONE
-//
-////                            bookingList.clear()
-////                            bookingList.addAll(data)
-////                            upComingBookingAdapter.setData(bookingList)
-//                    } else {
-//                        binding.tvNoSlots.visibility = View.VISIBLE
-//                        binding.rcvOnGoing.visibility = View.GONE
-//                    }
-//                }
-//
-//                Status.ERROR -> {
-//                    progressBar?.dismiss()
-//                    Log.e("PreviousBookingFragment", "Error: ${resource.message}")
-//                }
-//
-//                Status.LOADING -> {
-////                    ProcessDialog.showDialog(requireActivity(), true)
-//                }
-//            }
-//        }
-//        viewModel.getUpdateBooking().observe(viewLifecycleOwner) { resource ->
-//            when (resource.status) {
-//                Status.SUCCESS -> {
-//                    progressBar?.dismiss()
-//                        getBookingList()
-//                }
-//
-//                Status.ERROR -> {
-//                    progressBar?.dismiss()
-//                    Log.e("OngoingBookingFragment", "Error: ${resource.message}")
-//                }
-//
-//                Status.LOADING -> {
-////                    ProcessDialog.showDialog(requireActivity(), true)
-//                }
-//            }
-//        }
-//    }
-//
-//    fun refresh() {
-//        getBookingList()
-//    }
-//    private fun loadRcvBooking(list: List<GetBookingResponse.Payload.Booking>) {
-//        previousBookingAdapter = BookingListAdapter(
-//            requireActivity(),
-//            AppConstants.PENDING,
-//            list.toMutableList()
-//        ) { click, data ->
-//            when(click){
-//                0 -> {
-//                    val bundle = Bundle()
-//                    bundle.putString("from", AppConstants.PENDING)
-//                    bundle.putParcelable("data", data)
-//                    findNavController().navigate(R.id.action_bookingFragment_to_upcomingBookingDetailsFragment, bundle)
-//                }
-//                1 -> {
-//                    // Accept button clicked
-//                    Log.d("TAG", "Accept button clicked for booking ID: ${data.bookingID}")
-//                    changeBookingStatus("accept", data._id)
-//                }
-//                2 -> {
-//                    // Reject button clicked
-//                    Log.d("TAG", "Reject button clicked for booking ID: ${data.bookingID}")
-//                    changeBookingStatus("cancelled", data._id)
-//                }
-//            }
-//        }
-//        binding.rcvOnGoing.adapter = previousBookingAdapter
-//    }
-//
-//    private fun getBookingList() {
-//       viewModel.hitGetBookings(
-//            "pending", // or "previous" if your backend uses that status
-//            prefs.token
-//        )
-//
-//    }
-//
-//    private fun changeBookingStatus(status: String, bookingID: String) {
-//        var request = UpdateBookingStatusRequest(
-//            bookingId = bookingID,
-//            status = status
-//        )
-//        viewModel.hitUpdateBooking(prefs.token, request)
-//    }
-//}

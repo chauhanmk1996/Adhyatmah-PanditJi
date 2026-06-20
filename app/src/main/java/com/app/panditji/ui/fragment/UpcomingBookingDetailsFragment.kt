@@ -17,7 +17,7 @@ class UpcomingBookingDetailsFragment : Fragment() {
     var titles: String? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentUpcomingBookingDetailsBinding.inflate(layoutInflater)
@@ -30,14 +30,24 @@ class UpcomingBookingDetailsFragment : Fragment() {
         val booking = arguments?.getParcelable<GetBookingResponse.Payload.Booking>("data")
         booking?.let {
             bookingId = it.bookingID
-            binding.bookingId.text = "${getString(R.string.booking_id)} ${it.bookingID}"
+            val bookingIdText = "${getString(R.string.booking_id)} ${it.bookingID}"
+            binding.bookingId.text = bookingIdText
             binding.poojaName.text = it.poojaType
-            binding.address.text = it.address.streetAddress + ", " + it.address.city + ", " + it.address.state + ", " + it.address.country + " - " + it.address.zip
-            binding.poojaSamagri.text = it.pujaSamagri
-            binding.dateTime.text = it.dateTime
-            binding.totalFees.text = "₹ ${it.paymentAmount}"
-        }
+            val address =
+                it.address.streetAddress + ", " + it.address.city + ", " + it.address.state + ", " + it.address.country + " - " + it.address.zip
+            binding.address.text = address
 
+            val pujaSamagri = buildList {
+                addAll(it.pujaSamagri?.pujaKit.orEmpty())
+                addAll(it.pujaSamagri?.instantKit.orEmpty())
+            }.joinToString(", ")
+
+            binding.poojaSamagri.text = pujaSamagri
+
+            binding.dateTime.text = it.dateTime
+            val amount = "₹ ${it.paymentAmount}"
+            binding.totalFees.text = amount
+        }
 
         binding.ivBack.setOnClickListener {
             findNavController().popBackStack()

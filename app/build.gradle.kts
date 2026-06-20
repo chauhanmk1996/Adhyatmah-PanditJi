@@ -18,8 +18,8 @@ android {
         applicationId = "com.app.adhyatmahpanditji"
         minSdk = 24
         targetSdk = 35
-        versionCode = 12
-        versionName = "1.12"
+        versionCode = 14
+        versionName = "1.14"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -120,15 +120,4 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx:22.1.1")
 
     implementation("com.hbb20:ccp:2.5.4")
-
-    /*
-     implementation 'com.google.firebase:firebase-messaging-ktx'
-   */
-
-    /*
-        implementation("com.amazonaws:aws-android-sdk-s3:$2.16.+")
-        implementation ("com.amazonaws:aws-android-sdk-mobile-client:$aws_version") { transitive = true }
-    */
-
-
 }

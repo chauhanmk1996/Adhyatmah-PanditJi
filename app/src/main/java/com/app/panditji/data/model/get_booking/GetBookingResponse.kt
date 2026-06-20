@@ -8,11 +8,13 @@ data class GetBookingResponse(
     val error: Boolean,
     val message: String,
     val payload: Payload,
-    val status: Int
+    val status: Int,
 ) {
+
     data class Payload(
-        val bookings: List<Booking>
+        val bookings: List<Booking>,
     ) {
+
         @Parcelize
         data class Booking(
             val __v: Int,
@@ -26,30 +28,37 @@ data class GetBookingResponse(
             val `package`: String,
             val paymentAmount: Int,
             val poojaType: String,
-            val pujaSamagri: String,
+            var pujaSamagri: PujaSamagri? = null,
             val service: String,
             val status: String,
             val updatedAt: String,
-//            val vendor: Vender
-        ): Parcelable {
-            @Parcelize
-            data class Address(
-                val city: String,
-                val country: String,
-                val state: String,
-                val streetAddress: String,
-                val zip: String
-            ): Parcelable
-        }
+        ) : Parcelable
+
+        @Parcelize
+        data class PujaSamagri(
+            val pujaKit: ArrayList<String>? = null,
+            val instantKit: ArrayList<String>? = null,
+        ) : Parcelable
+
+        @Parcelize
+        data class Address(
+            val city: String,
+            val country: String,
+            val state: String,
+            val streetAddress: String,
+            val zip: String,
+        ) : Parcelable
+
         @Parcelize
         data class Customer(
             val _id: String,
             val firstName: String,
             val lastName: String,
             val email: String,
-            val image: String?=null,
-            val phone: String
-        ): Parcelable
+            val image: String? = null,
+            val phone: String,
+        ) : Parcelable
+
         @Parcelize
         data class Vender(
             val _id: String,
@@ -57,7 +66,7 @@ data class GetBookingResponse(
             val lastName: String,
             val email: String,
             val image: String,
-            val phone: String
-        ): Parcelable
+            val phone: String,
+        ) : Parcelable
     }
 }
