@@ -28,7 +28,7 @@ data class GetBookingResponse(
             val `package`: String,
             val paymentAmount: Int,
             val poojaType: String,
-            var pujaSamagri: PujaSamagri? = null,
+            val pujaSamagri:PujaSamagri?,
             val service: String,
             val status: String,
             val updatedAt: String,
@@ -36,8 +36,8 @@ data class GetBookingResponse(
 
         @Parcelize
         data class PujaSamagri(
-            val pujaKit: ArrayList<String>? = null,
-            val instantKit: ArrayList<String>? = null,
+            val pujaKit: List<String>? = null,
+            val instantKit: List<String>? = null,
         ) : Parcelable
 
         @Parcelize

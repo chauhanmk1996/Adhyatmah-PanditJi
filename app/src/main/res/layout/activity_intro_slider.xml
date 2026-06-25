@@ -13,7 +13,7 @@
         android:orientation="vertical"
         tools:context=".ui.intro_screen.IntroSliderActivity">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBack"
             android:layout_width="@dimen/fifty"
             android:layout_height="@dimen/fifty"

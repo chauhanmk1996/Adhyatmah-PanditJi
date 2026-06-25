@@ -51,13 +51,12 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Multipart
 import retrofit2.http.POST
-import retrofit2.http.PUT
 import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Query
 import splitties.init.appCtx
 import java.util.concurrent.TimeUnit
-
+import com.app.panditji.BuildConfig
 
 interface ApiInterface {
 
@@ -397,14 +396,11 @@ interface ApiInterface {
     suspend fun getPanditRevenue(@Query("vendorId") vendorId: String): Response<GetRevenueListResponse>
 
     companion object {
-        //        private const val BASE_URL = "https://floater.brancosoft.co.in/public/api/v1/"
         private const val BASE_URL = "https://api.adhyatmah.com/api/"
 
         private const val AUTH = "Authorization"
 
         fun create(prefsHelper: PrefsHelper): ApiInterface {
-            Log.i("TAG", "selectedLangName "+if (prefsHelper.selectedLanguageCode == "Hindi") "hi" else "en")
-
             val okHttpClient = OkHttpClient.Builder().apply {
                 this.connectTimeout(2, TimeUnit.MINUTES)
                     .writeTimeout(2, TimeUnit.MINUTES) // write timeout
@@ -416,13 +412,10 @@ interface ApiInterface {
                     request.header("Accept", "application/json")
                     request.addHeader("lang", prefsHelper.selectedLanguageCode)
 
-                    Log.e("TAG", "create:token  ${prefsHelper.authToken}")
                     if (prefsHelper.authToken.isNotEmpty()) {
-                        println("AUTH====>:Bearer ${prefsHelper.authToken}")
                         request.header(AUTH, "Bearer " + prefsHelper.authToken)
                     }
                     val response = it.proceed(request.build())
-                    Log.e("responsecheck", "create: ${response.code}")
                     if (response.code == 401) {
                         val intent = Intent(appCtx, SignInActivity::class.java).apply {
                             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -436,11 +429,11 @@ interface ApiInterface {
                     response
                 }
 
-                /*  addNetworkInterceptor(chuckerInterceptor)*/
-
                 addNetworkInterceptor(
-                    HttpLoggingInterceptor { message ->
-                        println(": $message")
+                    HttpLoggingInterceptor { logMessage ->
+                        if (BuildConfig.DEBUG) {
+                            Log.d("PanditJi:: okhhtp", logMessage)
+                        }
                     }.apply { level = HttpLoggingInterceptor.Level.BODY }
                 )
 

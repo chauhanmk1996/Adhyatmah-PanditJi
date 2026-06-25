@@ -1,7 +1,8 @@
 package com.app.panditji.ui.dashboard.booking
 
-import IntroSlideData
 import android.app.Dialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -17,10 +18,8 @@ import com.app.panditji.data.model.get_booking.GetBookingResponse
 import com.app.panditji.data.model.update_booking_status.UpdateBookingStatusRequest
 import com.app.panditji.data.sharedPrefs.PrefsHelper
 import com.app.panditji.databinding.FragmentCancelledBookingBinding
-import com.app.panditji.databinding.FragmentPendingBookingBinding
 import com.app.panditji.ui.adapter.BookingListAdapter
 import com.app.panditji.utils.AppConstants
-import com.app.panditji.utils.AppUtils
 import com.app.panditji.utils.extensions.getError
 import com.app.panditji.utils.extensions.toast
 import org.koin.android.ext.android.inject
@@ -29,21 +28,15 @@ import kotlin.getValue
 
 class CancelledBookingFragment : Fragment() {
     private lateinit var binding: FragmentCancelledBookingBinding
-    val setList = mutableListOf<IntroSlideData>()
     private lateinit var previousBookingAdapter: BookingListAdapter
     private val prefs by inject<PrefsHelper>()
     private var progressBar: Dialog? = null
     private val apiVm by viewModel<apiVm>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCancelledBookingBinding.inflate(layoutInflater)
         getBookingList()
         return binding.root
@@ -56,39 +49,36 @@ class CancelledBookingFragment : Fragment() {
         previousBookingAdapter = BookingListAdapter(
             requireActivity(),
             AppConstants.CANCELLED,
-            list.toMutableList()
-        ) { click, data ->
-            when(click){
-                0 -> {
-                    val bundle = Bundle()
-                    bundle.putString("from", AppConstants.CANCELLED)
-                    bundle.putParcelable("data", data)
-                    findNavController().navigate(R.id.action_bookingFragment_to_upcomingBookingDetailsFragment, bundle)
+            list.toMutableList(),
+            callBack ={click, data ->
+                when(click){
+                    0 -> {
+                        val bundle = Bundle()
+                        bundle.putString("from", AppConstants.CANCELLED)
+                        bundle.putParcelable("data", data)
+                        findNavController().navigate(R.id.action_bookingFragment_to_upcomingBookingDetailsFragment, bundle)
+                    }
+                    1 -> {
+                        changeBookingStatus("accept", data._id)
+                    }
+                    2 -> {
+                        changeBookingStatus("cancelled", data._id)
+                    }
                 }
-                1 -> {
-                    changeBookingStatus("accept", data._id)
-                }
-                2 -> {
-                    changeBookingStatus("cancelled", data._id)
-                }
+            },
+            callClick = { phone ->
+                openDialPad(phone)
             }
-        }
+        )
         binding.rcvOnGoing.adapter = previousBookingAdapter
     }
 
     private fun getBookingList() {
-//        progressBar = AppUtils.progressDialog(requireActivity())
-        apiVm.getBookings("cancelled", prefs.token)
-            .observe(
-                viewLifecycleOwner
-            ) { it ->
-                println("UjjwalGupta:$it")
+        apiVm.getBookings("cancelled", prefs.authToken).observe(viewLifecycleOwner) {
                 when (it) {
                     is Resource.Success -> {
                         dismissProgress()
                         val data = it.data?.payload?.bookings
-//                        upComingBookingAdapter.setData(data?.bookings)
-
                         Log.d("TAG", "listData $data")
                         if (data?.isNotEmpty() == true) {
                             loadRcvBooking(it.data.payload.bookings)
@@ -123,23 +113,14 @@ class CancelledBookingFragment : Fragment() {
                     }
 
                     else -> {
-
                     }
                 }
             }
     }
 
     private fun changeBookingStatus(status: String, bookingID: String) {
-//        progressBar = AppUtils.progressDialog(requireActivity())
-        var request = UpdateBookingStatusRequest(
-            bookingId = bookingID,
-            status = status
-        )
-        apiVm.updateBookingStatus( prefs.token, request)
-            .observe(
-                viewLifecycleOwner
-            ) { it ->
-                println("UjjwalGupta:$it")
+        val request = UpdateBookingStatusRequest(bookingId = bookingID, status = status)
+        apiVm.updateBookingStatus( prefs.authToken, request).observe(viewLifecycleOwner) {
                 when (it) {
                     is Resource.Success -> {
                         progressBar?.dismiss()
@@ -167,15 +148,28 @@ class CancelledBookingFragment : Fragment() {
                 }
             }
     }
+
     private fun dismissProgress() {
-        if (progressBar?.isShowing == true) {
-            progressBar?.dismiss()
+        try {
+            if (progressBar?.isShowing == true) {
+                progressBar?.dismiss()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        } finally {
+            progressBar = null
         }
-        progressBar = null
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        dismissProgress() // ✅ prevents leaked dialog when swiping away during load
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        dismissProgress()
+    }
+
+    private fun openDialPad(phoneNumber: String) {
+        val intent = Intent(Intent.ACTION_DIAL).apply {
+            data = Uri.parse("tel:$phoneNumber")
+        }
+        startActivity(intent)
+    }
 }

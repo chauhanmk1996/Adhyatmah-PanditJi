@@ -162,7 +162,6 @@ object AppUtils {
         dialog.setCanceledOnTouchOutside(false)
         dialog.setCancelable(false)
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        // ✅ Don't call show() here, let the caller control it
         return dialog
     }
     fun getPref(key: String, context: Context): String? {

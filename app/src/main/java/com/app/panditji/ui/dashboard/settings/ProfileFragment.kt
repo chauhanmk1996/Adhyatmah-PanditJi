@@ -195,8 +195,8 @@ class ProfileFragment : Fragment() {
         val bottomSheetDialog = BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
         bottomSheetDialog.setContentView(dialogView)
 
-        val tvTitle = dialogView.findViewById<TextView>(R.id.tvTitle)
-        val tvMessage = dialogView.findViewById<TextView>(R.id.tvMessage)
+        val tvTitle = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvTitle)
+        val tvMessage = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvMessage)
         val btnCancel = dialogView.findViewById<Button>(R.id.btnCancel)
         val btnPositive = dialogView.findViewById<Button>(R.id.btnSignOut)
 
@@ -245,7 +245,6 @@ class ProfileFragment : Fragment() {
         progressBar = AppUtils.progressDialog(requireActivity())
         apiVm.userLogout(prefs.authToken)
             .observe(requireActivity()) { it ->
-                println("PankajSingh:$it")
                 when (it) {
                     is Resource.Success -> {
                         progressBar?.dismiss()
@@ -278,8 +277,7 @@ class ProfileFragment : Fragment() {
 
         apiVm.customerSupport()
             .observe(requireActivity())
-            { it ->
-                println("PankajSingh:$it")
+            {
                 when (it) {
                     is Resource.Success -> {
                         progressBar?.dismiss()

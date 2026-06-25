@@ -8,6 +8,8 @@ import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.isVisible
 
 fun Context?.toast(text: String, shortTime: Boolean = true) {
@@ -47,13 +49,11 @@ fun View.makeVisible(show: Boolean = true) {
         show
     else
         false
-
 }
 
 fun View.toggleVisibility(){
     isVisible=!isVisible
 }
-
 fun View.makeVisible(show: Boolean = true, gone: Boolean = true) {
     this.visibility = if (show) View.VISIBLE else if (gone) View.GONE else View.INVISIBLE
 
@@ -72,9 +72,27 @@ fun String?.getColoredString( colorId: Int,startPos:Int=0,endPos:Int=1): Spannab
     val spannable: Spannable = SpannableString(this)
     spannable.setSpan(
         ForegroundColorSpan(colorId), startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-    // Log.d(TAG, spannable.toString())
     return spannable
 }
+fun View.show() {
+    this.visibility = View.VISIBLE
+}
+fun View.hide() {
+    this.visibility = View.GONE
+}
 
+fun AppCompatTextView.getString(): String {
+    return this.text.trim().toString()
+}
 
+fun AppCompatTextView.getLength(): Int {
+    return this.text.trim().toString().length
+}
+
+fun AppCompatEditText.getString(): String {
+    return this.text?.trim()?.toString() ?: ""
+}
+
+fun AppCompatEditText.getLength(): Int {
+    return this.text?.trim()?.toString()?.length ?: 0
+}

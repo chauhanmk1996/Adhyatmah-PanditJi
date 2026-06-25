@@ -21,7 +21,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvBookingId"
                 android:layout_marginStart="11dp"
                 android:layout_marginEnd="10dp"
@@ -37,7 +37,7 @@
                 app:layout_constraintEnd_toStartOf="@id/btStatusId"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btStatusId"
                 android:layout_width="0dp"
                 android:paddingVertical="@dimen/_4sdp"
@@ -64,7 +64,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 app:layout_constraintTop_toBottomOf="@+id/btStatusId" >
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivProf"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
@@ -73,7 +73,7 @@
                     android:src="@drawable/pamdit_ji"/>
             </androidx.cardview.widget.CardView>
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btNameId"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:maxLength="20"
                 app:layout_constraintTop_toTopOf="@+id/imageCardView"
                 app:layout_constraintStart_toEndOf="@+id/imageCardView"/>
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:visibility="gone"
                 android:id="@+id/tvAddressId1"
                 android:layout_width="0dp"
@@ -126,7 +126,7 @@
 
 
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvBookingId1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
 
 
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/poojaName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -150,7 +150,7 @@
                     android:textColor="@color/black"
                     />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:visibility="gone"
                     android:id="@+id/tvHanumanPuja"
                     android:layout_width="match_parent"
@@ -162,7 +162,7 @@
                     android:textSize="12sp"
                     />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:visibility="gone"
                     android:id="@+id/tvLocation"
                     android:layout_width="match_parent"
@@ -173,7 +173,7 @@
                     android:layout_marginTop="@dimen/_7sdp"
                     android:textSize="12sp"
                     />
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvCreateTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -183,7 +183,7 @@
                     android:layout_marginTop="10dp"
                     android:textSize="12sp"
                     />
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -194,7 +194,7 @@
                     android:textSize="12sp"
                     />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvRevenue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -204,7 +204,7 @@
                     android:layout_marginTop="10dp"
                     android:textSize="12sp"
                     />
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/revenueAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -217,7 +217,7 @@
 
 
             </LinearLayout>
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btnCancel"
                 android:layout_width="0dp"
                 android:paddingVertical="@dimen/_4sdp"

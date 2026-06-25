@@ -1,51 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/main"
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SplashActivity">
+        android:scaleType="fitXY"
+        android:src="@drawable/splash" />
 
-        <ImageView
-            android:id="@+id/ivLogo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/splash_panditji"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingTop="@dimen/_50sdp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_18sdp"
-            android:fontFamily="@font/inter_semibold"
-            android:text="@string/welcome_to_panditji_app"
-            tools:ignore="MissingConstraints">
-
-        </TextView>
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="@dimen/three_zero_dp"
-            android:layout_height="@dimen/three_zero_dp"
-            android:layout_marginTop="@dimen/twenty_four_dp"
-            android:progressTint="@color/app_color_second"
-            android:layout_centerHorizontal="true"
-            android:indeterminateTint="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/ivLogo"
-            app:layout_constraintStart_toStartOf="@+id/ivLogo"
-            app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-

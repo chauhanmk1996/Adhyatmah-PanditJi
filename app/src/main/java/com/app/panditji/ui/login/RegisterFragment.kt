@@ -1,11 +1,11 @@
 package com.app.panditji.ui.login
+
 import android.Manifest
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -20,8 +20,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -45,6 +43,7 @@ import com.app.panditji.utils.extensions.toast
 import com.app.panditji.databinding.FragmentRegisterBinding
 import com.app.panditji.ui.dashboard.LanguageAdapter
 import com.app.panditji.ui.dashboard.ServicesAdapter
+import com.app.panditji.utils.extensions.getString
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -86,37 +85,36 @@ class RegisterFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
+        savedInstanceState: Bundle?,
+    ): View {
         binding = FragmentRegisterBinding.inflate(inflater)
-//        aadhaarImageView = binding.uploadAadhaarImage
-
         initObservers()
         notificationPermission()
         getAllServices()
         binding.profileImage.setOnClickListener {
-//            currentImageForAadhaar = true
             showImagePickerBottomSheet()
         }
+
         binding.etServices.setOnClickListener {
             selectServices()
         }
+
         binding.clSelectDate.setOnClickListener {
             showDatePicker()
         }
+
         binding.etLanguage.setOnClickListener {
             selectLanguage()
         }
         return binding.root
     }
+
     private fun getAllServices() {
         progressBar = AppUtils.progressDialog(requireActivity())
         apiVm.getAllServices()
             .observe(
                 requireActivity()
             ) { it ->
-                println("UjjwalGupta:$it")
                 when (it) {
                     is Resource.Success -> {
                         progressBar?.dismiss()
@@ -132,12 +130,12 @@ class RegisterFragment : Fragment() {
                             }
 
                             else -> {
-                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.errorCode}",)
+                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.errorCode}")
                                 Log.e(
                                     "TAG",
                                     "loginUser: ${it.errorBody?.getError()?.errorMessage}",
                                 )
-                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.statusCode}",)
+                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.statusCode}")
                                 it.errorBody?.getError()?.errorMessage?.let { errorMessage ->
                                     requireActivity().toast(errorMessage)
                                 }
@@ -180,27 +178,27 @@ class RegisterFragment : Fragment() {
 
     private fun validation() {
 
-        val etName = binding.etName.text.trim().toString()
-        val etLastName = binding.etLastName.text.trim().toString()
-        val etPhone = binding.etPhoneNumber.text.trim().toString()
-        val etEmail = binding.etEmail.text.trim().toString()
-        val etPassword = binding.etPassword.text.trim().toString()
+        val etName = binding.etName.getString()
+        val etLastName = binding.etLastName.getString()
+        val etPhone = binding.etPhoneNumber.getString()
+        val etEmail = binding.etEmail.getString()
+        val etPassword = binding.etPassword.getString()
         val dob = selectedDate
-        val etGotra = binding.etGotra.text.trim().toString()
-        val prawar = binding.etPrawar.text.toString().trim()
-        val veda = binding.etVeda.text.toString().trim()
-        val pankti = binding.etPankti.text.toString().trim()
-        val shakha = binding.etShakha.text.toString().trim()
-        val sutra = binding.etSutra.text.toString().trim()
-        val aadharNumber = binding.etAadharNumber.text.toString().trim()
-        val experience = binding.etExperience.text.trim().toString()
-        val etAbout = binding.etAbout.text.trim().toString()
-        val address = binding.address.text.toString().trim()
-        val state = binding.state.text.toString().trim()
-        val city = binding.city.text.toString().trim()
-        val pincode = binding.pincode.text.toString().trim()
-        val country = binding.country.text.toString().trim()
-        val referralCode = binding.referralCode.text.toString().trim()
+        val etGotra = binding.etGotra.getString()
+        val prawar = binding.etPrawar.getString()
+        val veda = binding.etVeda.getString()
+        val pankti = binding.etPankti.getString()
+        val shakha = binding.etShakha.getString()
+        val sutra = binding.etSutra.getString()
+        val aadharNumber = binding.etAadharNumber.getString()
+        val experience = binding.etExperience.getString()
+        val etAbout = binding.etAbout.getString()
+        val address = binding.address.getString()
+        val state = binding.state.getString()
+        val city = binding.city.getString()
+        val pincode = binding.pincode.getString()
+        val country = binding.country.getString()
+        val referralCode = binding.referralCode.getString()
 
         when {
             profileImageFile == null -> toast(getString(R.string.please_upload_profile_image))
@@ -231,11 +229,12 @@ class RegisterFragment : Fragment() {
                     etName, etLastName, etPhone, etEmail, etPassword,
                     dob, etAbout, etGotra, prawar, veda, pankti,
                     shakha, sutra, aadharNumber, experience,
-                    address, city, state, pincode, country,referralCode
+                    address, city, state, pincode, country, referralCode
                 )
             }
         }
     }
+
     private fun uploadProfileImageAndRegister(
         firstName: String,
         lastName: String,
@@ -263,7 +262,8 @@ class RegisterFragment : Fragment() {
         progresbar = AppUtils.progressDialog(requireActivity())
 
         val requestFile = profileImageFile!!.asRequestBody("image/*".toMediaTypeOrNull())
-        val filePart = MultipartBody.Part.createFormData("file", profileImageFile!!.name, requestFile)
+        val filePart =
+            MultipartBody.Part.createFormData("file", profileImageFile!!.name, requestFile)
         val customerIdRB = "0".toRequestBody("text/plain".toMediaTypeOrNull())
 
         apiVm.uploadImage(filePart, customerIdRB)
@@ -364,8 +364,9 @@ class RegisterFragment : Fragment() {
         val dialog = BottomSheetDialog(requireContext())
         dialog.setContentView(view)
 
-        val camera = view.findViewById<TextView>(R.id.openCamera)
-        val gallery = view.findViewById<TextView>(R.id.openGallery)
+        val camera = view.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.openCamera)
+        val gallery =
+            view.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.openGallery)
 
         camera.setOnClickListener {
             checkPermissionForCamera()
@@ -392,11 +393,11 @@ class RegisterFragment : Fragment() {
     }
 
 
-
     private fun launchCamera() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
-        val photoFile = File(requireContext().cacheDir,
+        val photoFile = File(
+            requireContext().cacheDir,
             "temp_image_${System.currentTimeMillis()}.jpg"
         )
 
@@ -413,6 +414,7 @@ class RegisterFragment : Fragment() {
 
         startActivityForResult(intent, CAMERA_REQUEST_CODE)
     }
+
     private val photoPickerLauncher =
         registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
             uri?.let {
@@ -666,13 +668,15 @@ class RegisterFragment : Fragment() {
         binding.tvAlreadyHaveAccount.text = spannable
         binding.tvAlreadyHaveAccount.movementMethod = LinkMovementMethod.getInstance()
     }
+
     private fun selectLanguage() {
         val dialogView = layoutInflater.inflate(R.layout.language_dialog, null)
         val bottomSheetDialog = BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
         bottomSheetDialog.setContentView(dialogView)
         bottomSheetDialog.setOnShowListener { dialog ->
             val d = dialog as BottomSheetDialog
-            val bottomSheet = d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            val bottomSheet =
+                d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             bottomSheet?.let {
                 val behavior = BottomSheetBehavior.from(it)
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
@@ -681,10 +685,24 @@ class RegisterFragment : Fragment() {
         }
 
         val recyclerView = dialogView.findViewById<RecyclerView>(R.id.rvLanguages)
-        val btnAdd = dialogView.findViewById<TextView>(R.id.btnAdd)
+        val btnAdd =
+            dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.btnAdd)
 
         // Full list of languages (you can come from API or static)
-        val languageList = listOf("Hindi", "English", "Marathi", "Sanskrit", "Bangali", "Gujarati", "Odia", "Tamil", "Telugu", "Kannada", "Malayalam", "Others")
+        val languageList = listOf(
+            "Hindi",
+            "English",
+            "Marathi",
+            "Sanskrit",
+            "Bangali",
+            "Gujarati",
+            "Odia",
+            "Tamil",
+            "Telugu",
+            "Kannada",
+            "Malayalam",
+            "Others"
+        )
 
         // Already selected ones (capitalize matching)
         val selectedLanguages = mutableListOf<String>()
@@ -708,6 +726,7 @@ class RegisterFragment : Fragment() {
 
         bottomSheetDialog.show()
     }
+
     private fun selectServices() {
         val dialogView = layoutInflater.inflate(R.layout.language_dialog, null)
         val bottomSheetDialog = BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
@@ -723,9 +742,12 @@ class RegisterFragment : Fragment() {
         }
 
         val recyclerView = dialogView.findViewById<RecyclerView>(R.id.rvLanguages)
-        val btnAdd = dialogView.findViewById<TextView>(R.id.btnAdd)
-        val title = dialogView.findViewById<TextView>(R.id.tvTitle)
-        val description = dialogView.findViewById<TextView>(R.id.tvDescription)
+        val btnAdd =
+            dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.btnAdd)
+        val title =
+            dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvTitle)
+        val description =
+            dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvDescription)
         val selectedServices = selectedServices
         binding.etServices.setText(
             selectedServices.joinToString(", ") { it.poojaType }

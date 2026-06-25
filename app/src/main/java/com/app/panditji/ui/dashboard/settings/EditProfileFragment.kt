@@ -44,6 +44,7 @@ import com.app.panditji.ui.dashboard.ServicesAdapter
 import com.app.panditji.utils.AppUtils
 import com.app.panditji.utils.AppUtils.convertToYyyyMmDd
 import com.app.panditji.utils.extensions.getError
+import com.app.panditji.utils.extensions.getString
 import com.app.panditji.utils.extensions.toast
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -205,27 +206,27 @@ class EditProfileFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             if (checkValidations()) {
                 val model = UpdateProfile(
-                    firstName = binding.etName.text.toString(),
-                    lastName = binding.etLastName.text.toString(),
-                    email = binding.etEmail.text.toString(),
-                    phone = binding.etPhoneNumber.text.toString(),
+                    firstName = binding.etName.getString(),
+                    lastName = binding.etLastName.getString(),
+                    email = binding.etEmail.getString(),
+                    phone = binding.etPhoneNumber.getString(),
                     gender = selectedGender.toLowerCase(Locale.ROOT),
-                    about = binding.etAbout.text.toString(),
-                    gotra = binding.etGotra.text.toString(),
-                    pravar = binding.etPrawar.text.toString(),
+                    about = binding.etAbout.getString(),
+                    gotra = binding.etGotra.getString(),
+                    pravar = binding.etPrawar.getString(),
                     dateOfBirth = if (selectedDate.isNotEmpty()) selectedDate else null,
-                    veda = binding.etVeda.text.toString(),
-                    pankti = binding.etPankti.text.toString(),
-                    shakha = binding.etShakha.text.toString(),
-                    sutra = binding.etSutra.text.toString(),
-                    address = binding.address.text.toString(),
-                    state =  binding.state.text.toString(),
-                    city = binding.city.text.toString(),
-                    zip = binding.pincode.text.toString(),
-                    country = binding.country.text.toString(),
+                    veda = binding.etVeda.getString(),
+                    pankti = binding.etPankti.getString(),
+                    shakha = binding.etShakha.getString(),
+                    sutra = binding.etSutra.getString(),
+                    address = binding.address.getString(),
+                    state =  binding.state.getString(),
+                    city = binding.city.getString(),
+                    zip = binding.pincode.getString(),
+                    country = binding.country.getString(),
                     language  = selectedLanguages.map { it.lowercase() }.toMutableList(),
                     services = selectedServices.map { it.id },
-                    aadhar = binding.etAadhar.text.toString()
+                    aadhar = binding.etAadhar.getString()
                 )
                 when {
 //                    isImageUpdated && isAadhaarImageUpdated -> uploadBothImages(model)
@@ -245,7 +246,6 @@ class EditProfileFragment : Fragment() {
             .observe(
                 requireActivity()
             ) { it ->
-                println("UjjwalGupta:$it")
                 when (it) {
                     is Resource.Success -> {
                         progressBar?.dismiss()
@@ -332,26 +332,26 @@ class EditProfileFragment : Fragment() {
 
     private fun checkValidations(): Boolean {
 
-        val name = binding.etName.text.toString().trim()
-        val lastName = binding.etLastName.text.toString().trim()
-        val email = binding.etEmail.text.toString().trim()
-        val phone = binding.etPhoneNumber.text.toString().trim()
-        val about = binding.etAbout.text.toString().trim()
-        val gotra = binding.etGotra.text.toString().trim()
-        val prawar = binding.etPrawar.text.toString().trim()
+        val name = binding.etName.getString()
+        val lastName = binding.etLastName.getString()
+        val email = binding.etEmail.getString()
+        val phone = binding.etPhoneNumber.getString()
+        val about = binding.etAbout.getString()
+        val gotra = binding.etGotra.getString()
+        val prawar = binding.etPrawar.getString()
         val dob = selectedDate
         val gender = selectedGender
         val language = selectedLanguages
-        val veda = binding.etVeda.text.toString().trim()
-        val pankti = binding.etPankti.text.toString().trim()
-        val shakha = binding.etShakha.text.toString().trim()
-        val sutra = binding.etSutra.text.toString().trim()
-        val address = binding.address.text.toString().trim()
-        val state = binding.state.text.toString().trim()
-        val city = binding.city.text.toString().trim()
-        val pincode = binding.pincode.text.toString().trim()
-        val country = binding.country.text.toString().trim()
-        val aadhar = binding.etAadhar.text.toString().trim()
+        val veda = binding.etVeda.getString()
+        val pankti = binding.etPankti.getString()
+        val shakha = binding.etShakha.getString()
+        val sutra = binding.etSutra.getString()
+        val address = binding.address.getString()
+        val state = binding.state.getString()
+        val city = binding.city.getString()
+        val pincode = binding.pincode.getString()
+        val country = binding.country.getString()
+        val aadhar = binding.etAadhar.getString()
 
         if (name.isEmpty()) {
             showToast(getString(R.string.error_enter_first_name))
@@ -492,8 +492,8 @@ class EditProfileFragment : Fragment() {
         val dialog = BottomSheetDialog(requireContext())
         dialog.setContentView(view)
 
-        val camera = view.findViewById<TextView>(R.id.openCamera)
-        val gallery = view.findViewById<TextView>(R.id.openGallery)
+        val camera = view.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.openCamera)
+        val gallery = view.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.openGallery)
 
         camera.setOnClickListener {
             currentImageForAadhaar = isForAadhaar
@@ -521,7 +521,6 @@ class EditProfileFragment : Fragment() {
             .observe(
                 requireActivity()
             ) { it ->
-                println("UjjwalGupta:$it")
                 when (it) {
                     is Resource.Success -> {
                         progressBar?.dismiss()
@@ -557,7 +556,6 @@ class EditProfileFragment : Fragment() {
             .observe(
                 requireActivity()
             ) { it ->
-                println("UjjwalGupta:$it")
                 when (it) {
                     is Resource.Success -> {
                         progressBar?.dismiss()
@@ -697,8 +695,9 @@ class EditProfileFragment : Fragment() {
             state.text = Editable.Factory.getInstance().newEditable(data?.vendor?.address?.state ?: "")
             city.text = Editable.Factory.getInstance().newEditable(data?.vendor?.address?.city ?: "")
             pincode.text = Editable.Factory.getInstance().newEditable(data?.vendor?.address?.zip ?: "")
-            country.text = Editable.Factory.getInstance().newEditable(data?.vendor?.address?.country ?: "")
             etAadhar.text = Editable.Factory.getInstance().newEditable(data?.vendor?.aadhar ?: "")
+            country.text = Editable.Factory.getInstance().newEditable(data?.vendor?.address?.country ?: "")
+            referralCode.text = Editable.Factory.getInstance().newEditable(data?.vendor?.referral_code ?: "")
             Glide.with(requireActivity())
                 .load(data?.vendor?.image?.url)
                 .placeholder(R.drawable.pandit_ji_img)
@@ -752,7 +751,7 @@ class EditProfileFragment : Fragment() {
         }
 
         val recyclerView = dialogView.findViewById<RecyclerView>(R.id.rvLanguages)
-        val btnAdd = dialogView.findViewById<TextView>(R.id.btnAdd)
+        val btnAdd = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.btnAdd)
 
         // Full list of languages (you can come from API or static)
         val languageList = listOf("Hindi", "English", "Marathi", "Sanskrit", "Bangali", "Gujarati", "Odia", "Tamil", "Telugu", "Kannada", "Malayalam", "Others")
@@ -794,9 +793,9 @@ class EditProfileFragment : Fragment() {
         }
 
         val recyclerView = dialogView.findViewById<RecyclerView>(R.id.rvLanguages)
-        val btnAdd = dialogView.findViewById<TextView>(R.id.btnAdd)
-        val title = dialogView.findViewById<TextView>(R.id.tvTitle)
-        val description = dialogView.findViewById<TextView>(R.id.tvDescription)
+        val btnAdd = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.btnAdd)
+        val title = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvTitle)
+        val description = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvDescription)
         val selectedServices = selectedServices
         binding.etServices.setText(
             selectedServices.joinToString(", ") { it.poojaType }

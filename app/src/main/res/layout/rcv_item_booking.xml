@@ -1,269 +1,280 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardUpcomingContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/sixteen"
-        app:cardElevation="5dp"
-        android:elevation="5dp"
-        app:strokeColor="#E98347"
-        app:strokeWidth="@dimen/_1sdp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:elevation="2dp"
         app:cardBackgroundColor="@color/white"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:layout_marginBottom="@dimen/_6sdp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="3dp"
-
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        app:cardCornerRadius="16dp"
+        app:strokeColor="#E98347"
+        app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvBookingId"
-                android:layout_marginStart="11dp"
-                android:layout_marginEnd="10dp"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:text="@string/booking_id_123546567895"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
                 android:fontFamily="@font/inter_semibold"
+                android:maxLength="35"
+                android:maxLines="1"
+                android:text="@string/booking_id_123546567895"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:maxLines="1"
-                android:layout_marginTop="@dimen/_12sdp"
-                app:layout_constraintEnd_toStartOf="@id/btStatusId"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-            <TextView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btStatusId"
                 android:layout_width="0dp"
-                android:paddingVertical="@dimen/_4sdp"
-                android:paddingHorizontal="@dimen/_21sdp"
-
-                android:layout_marginTop="@dimen/_12sdp"
-                android:layout_marginEnd="11dp"
                 android:layout_height="wrap_content"
-                android:text="@string/pending"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_box_white_solid_radi_20sdp"
+                android:backgroundTint="@color/red"
                 android:fontFamily="@font/inter_semibold"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="3dp"
+                android:text="@string/pending"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:backgroundTint="@color/red"
-                android:background="@drawable/bg_box_white_solid_radi_20sdp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/imageCardView"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="11dp"
-                app:cardCornerRadius="30dp"
-                app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                app:layout_constraintTop_toBottomOf="@+id/btStatusId" >
-                <ImageView
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btStatusId">
+
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivProf"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:importantForAccessibility="no"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/pamdit_ji"/>
+                    android:src="@drawable/pamdit_ji" />
+
             </androidx.cardview.widget.CardView>
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btNameId"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Manish kumar"
-                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_marginStart="12dp"
                 android:fontFamily="@font/inter_semibold"
+                android:maxLength="20"
+                android:maxLines="1"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:maxLines="1"
-                android:maxLength="20"
+                app:layout_constraintEnd_toStartOf="@+id/iv_call"
+                app:layout_constraintStart_toEndOf="@+id/imageCardView"
                 app:layout_constraintTop_toTopOf="@+id/imageCardView"
-                app:layout_constraintStart_toEndOf="@+id/imageCardView"/>
-            <TextView
+                tools:text="Manish kumar" />
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvAddressId1"
                 android:layout_width="0dp"
-                android:layout_marginTop="@dimen/_3sdp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_6sdp"
-                android:text="@string/g_52_sector_63_rd_g_block_sector_63_noida_chotpur_uttar_pradesh_201309"
-                android:fontFamily="@font/inter"
-                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginStart="12dp"
                 android:ellipsize="end"
+                android:fontFamily="@font/roboto_regular"
                 android:maxLines="2"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/india"
                 android:textColor="@color/black"
                 android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/iv_call"
                 app:layout_constraintStart_toEndOf="@+id/imageCardView"
-                app:layout_constraintTop_toBottomOf="@+id/btNameId"/>
+                app:layout_constraintTop_toBottomOf="@+id/btNameId" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/call"
+                android:padding="8dp"
+                app:layout_constraintTop_toTopOf="@+id/imageCardView"
+                app:layout_constraintBottom_toBottomOf="@+id/imageCardView"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
             <View
                 android:id="@+id/viewId"
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="8dp"
                 android:background="#E98347"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginHorizontal="@dimen/_6sdp"
-                app:layout_constraintTop_toBottomOf="@+id/imageCardView"
-                android:layout_height="1dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/tvAddressId1" />
+
             <LinearLayout
                 android:id="@+id/layoutId"
-                android:padding="@dimen/_8sdp"
                 android:layout_width="0dp"
-                android:visibility="visible"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewId"
-                app:layout_constraintEnd_toStartOf="@id/btnCancel"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="@dimen/_8sdp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@id/btnCancel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewId">
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvBookingId1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/pooja_booked"
+                    android:textColor="@color/theme"
+                    android:textSize="12sp" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/poojaName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    tools:text="Mahamrtyunjay path" />
 
-                    <TextView
-                        android:id="@+id/tvBookingId1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/pooja_booked"
-                        android:fontFamily="@font/roboto_bold"
-                        android:textColor="@color/yellow_F37932"
-                        android:textSize="12sp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPujaSamagri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/puja_samagri"
+                    android:visibility="gone"
+                    android:textColor="@color/theme"
+                    android:textSize="12sp" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPujaKit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/black"
+                    android:visibility="gone"
+                    android:textSize="12sp"
+                    tools:text="Puja Kit - Mahamrtyunjay path" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvInstantKit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    tools:text="Instant Kit - Mahamrtyunjay path" />
 
-                        <TextView
-                            android:id="@+id/poojaName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="Mahamrtyunjay path"
-                            android:textSize="12sp"
-                            android:layout_marginTop="@dimen/_7sdp"
-                            android:textColor="@color/black"
-                            />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCreateTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/date_time"
+                    android:textColor="@color/theme"
+                    android:textSize="12sp" />
 
-                        <TextView
-                            android:visibility="gone"
-                            android:id="@+id/tvHanumanPuja"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hanuman_puja"
-                            android:fontFamily="@font/roboto_bold"
-                            android:textColor="@color/yellow_F37932"
-                            android:layout_marginTop="@dimen/_13sdp"
-                            android:textSize="12sp"
-                            />
-
-                        <TextView
-                            android:visibility="gone"
-                            android:id="@+id/tvLocation"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/_1_25_lakh_mantra"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:layout_marginTop="@dimen/_7sdp"
-                            android:textSize="12sp"
-                            />
-                        <TextView
-                            android:id="@+id/tvCreateTime"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/date_and_time"
-                            android:fontFamily="@font/roboto_bold"
-                            android:textColor="@color/yellow_F37932"
-                            android:layout_marginTop="@dimen/_13sdp"
-                            android:textSize="12sp"
-                            />
-                        <TextView
-                            android:id="@+id/tvDate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="7:00 PM, Aug 28, 2025"
-                            android:fontFamily="@font/roboto_regular"
-                            android:textColor="@color/black"
-                            android:layout_marginTop="@dimen/_7sdp"
-                            android:textSize="12sp"
-                            />
-
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvInr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    tools:text="7:00 PM, Aug 28, 2025" />
 
             </LinearLayout>
-            <TextView
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btnCancel"
                 android:layout_width="0dp"
-                android:paddingVertical="@dimen/_4sdp"
-                android:paddingHorizontal="10dp"
-                android:visibility="gone"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:layout_marginEnd="11dp"
                 android:layout_marginBottom="15dp"
-                android:layout_height="wrap_content"
-                android:text="Cancel"
+                android:background="@drawable/bg_box_white_solid_radi_20sdp"
+                android:backgroundTint="@color/red"
                 android:fontFamily="@font/inter_semibold"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="@dimen/_4sdp"
+                android:text="Cancel"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:backgroundTint="@color/red"
-                android:background="@drawable/bg_box_white_solid_radi_20sdp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/layoutId"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <LinearLayout
                 android:id="@+id/btnLayoutIdId"
-                app:layout_constraintTop_toBottomOf="@+id/layoutId"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_11sdp"
                 android:orientation="horizontal"
                 android:visibility="gone"
-                android:layout_marginHorizontal="@dimen/_20sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="@dimen/_11sdp"
-                android:layout_height="wrap_content">
+                app:layout_constraintTop_toBottomOf="@+id/layoutId">
+
                 <com.google.android.material.button.MaterialButton
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
                     android:id="@+id/acceptIdBtn"
-                    android:text="@string/accept"
-                    android:backgroundTint="@color/green_00da45"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_14sdp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textAllCaps="false"
-                    android:layout_marginHorizontal="@dimen/_12sdp"
-                    android:layout_height="wrap_content"/>
-                 <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
-                     android:layout_weight="1"
-                     android:id="@+id/declineIdBtn"
-                     android:text="@string/decline"
-                     android:textColor="@color/white"
-                     android:textSize="@dimen/_14sdp"
-                     android:fontFamily="@font/roboto_bold"
-                     android:textAllCaps="false"
-                     android:backgroundTint="@color/red_e30000"
-                     android:layout_marginHorizontal="@dimen/_12sdp"
-                     android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/green_00da45"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/accept"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/declineIdBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/red_e30000"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/decline"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
 
             </LinearLayout>
+
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="@dimen/_15sdp"
                 android:id="@+id/btnCompleteId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/bg_box_select_language_7sdp"
+                android:backgroundTint="@color/yellow_F37932"
+                android:fontFamily="@font/roboto_bold"
                 android:text="@string/complete"
                 android:textAllCaps="false"
-                android:background="@drawable/bg_box_select_language_7sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:textSize="@dimen/_11sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
                 android:textColor="@color/white"
-                android:fontFamily="@font/roboto_bold"
-                android:backgroundTint="@color/yellow_F37932"
-                app:layout_constraintTop_toBottomOf="@+id/layoutId"
-                android:layout_height="wrap_content"/>
-
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutId" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

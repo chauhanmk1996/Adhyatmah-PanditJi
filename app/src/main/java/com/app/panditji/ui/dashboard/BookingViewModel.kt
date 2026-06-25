@@ -1,21 +1,18 @@
 package com.app.panditji.ui.dashboard
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.panditji.data.network.SingleLiveEvent
 import com.app.panditji.data.model.get_booking.GetBookingResponse
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 import com.app.panditji.data.apiRepo.RepoBooking
 import com.app.panditji.data.model.update_booking_status.UpdateBookingStatusRequest
 import com.app.panditji.data.network.Resources
 
-class BookingViewModel (
-    private val repoBooking: RepoBooking
+class BookingViewModel(
+    private val repoBooking: RepoBooking,
 ) : ViewModel() {
 
     private val bookingsLiveData = SingleLiveEvent<Resources<GetBookingResponse>>()
@@ -33,7 +30,6 @@ class BookingViewModel (
             }
         }
     }
-
 
     private val updateBookingLiveData = SingleLiveEvent<Resources<GetBookingResponse>>()
 
@@ -53,7 +49,12 @@ class BookingViewModel (
                 updateBookingLiveData.postValue(Resources.success(response))
             } catch (e: Exception) {
                 Log.e("UpdateBooking", "API call failed", e) // ✅ prints stack trace in Logcat
-                updateBookingLiveData.postValue(Resources.error(e.localizedMessage ?: "Error", null))
+                updateBookingLiveData.postValue(
+                    Resources.error(
+                        e.localizedMessage ?: "Error",
+                        null
+                    )
+                )
             }
         }
     }

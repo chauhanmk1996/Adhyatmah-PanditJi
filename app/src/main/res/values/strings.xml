@@ -345,4 +345,9 @@
     <string name="invalid_credentials">Invalid credentials.</string>
     <string name="referral_code">Referral Code</string>
     <string name="enter_your_referral_code">Enter your referral code</string>
+    <string name="date_time">Date &amp; Time</string>
+    <string name="india">India</string>
+    <string name="puja_kit">Puja Kit</string>
+    <string name="instant_kit">Instant Kit</string>
+    <string name="no_revenue_found">No revenue Found!</string>
 </resources>

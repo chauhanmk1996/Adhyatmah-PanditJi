@@ -29,6 +29,8 @@ import com.app.panditji.data.sharedPrefs.PrefsHelper
 import com.app.panditji.databinding.FragmentEnterNumberBinding
 import com.app.panditji.utils.AppUtils
 import com.app.panditji.utils.extensions.getError
+import com.app.panditji.utils.extensions.getLength
+import com.app.panditji.utils.extensions.getString
 import com.app.panditji.utils.extensions.toast
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -75,10 +77,10 @@ class EnterNumberFragment : Fragment() {
     }
 
     private fun validation(): Boolean {
-        if (binding.phonenumberInput.text.toString().isEmpty()) {
+        if (binding.phonenumberInput.getString().isEmpty()) {
             Toast.makeText(requireContext(), "Please enter the number!", Toast.LENGTH_SHORT).show()
             return false
-        } else if (binding.phonenumberInput.text.toString().length < 10) {
+        } else if (binding.phonenumberInput.getLength() < 10) {
             Toast.makeText(requireContext(), "Please enter a valid number!", Toast.LENGTH_SHORT)
                 .show()
             return false
@@ -121,7 +123,7 @@ class EnterNumberFragment : Fragment() {
 
     private fun sendOtp() {
         progresbar = AppUtils.progressDialog(requireActivity())
-        apiVm.loginWithMobile(LoginWithMobileRequest(mobile = binding.phonenumberInput.text.toString()))
+        apiVm.loginWithMobile(LoginWithMobileRequest(mobile = binding.phonenumberInput.getString()))
             .observe(
                 requireActivity()
             ) { it ->
@@ -132,7 +134,7 @@ class EnterNumberFragment : Fragment() {
                         progresbar?.dismiss()
 
                         if (it.data?.code == 200) {
-                            AppConstants.MOBILE_NUMBER = binding.phonenumberInput.text.toString()
+                            AppConstants.MOBILE_NUMBER = binding.phonenumberInput.getString()
                             findNavController().navigate(R.id.otpFragment)
                         } else if (it.data?.message == "Account not active.") {
                             Toast.makeText(

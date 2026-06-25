@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvBookingId"
             android:padding="8dp"
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
                 android:background="@drawable/circular"
                 app:layout_constraintTop_toBottomOf="@+id/tvId"
                 app:layout_constraintStart_toStartOf="@+id/tvId">
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivProf"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -59,7 +59,7 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:orientation="vertical">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvUserFullName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                     android:textColor="@color/black"
                     />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_marginTop="@dimen/_3sdp"
                     android:id="@+id/tvCreateTime"
                     android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
                     android:textSize="10sp"
                     />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvLocation"
                     android:layout_marginTop="@dimen/_3sdp"
                     android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
             </LinearLayout>
 
         </LinearLayout>
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvHanumanPuja"
             android:padding="8dp"
             android:layout_width="wrap_content"

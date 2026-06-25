@@ -1,7 +1,6 @@
 package com.app.panditji.ui.dashboard.booking
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +17,7 @@ class BookingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentBookingBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -26,7 +25,6 @@ class BookingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadTabs()
-
     }
 
     private fun loadTabs() {
@@ -40,16 +38,7 @@ class BookingFragment : Fragment() {
                 )
         val adapter = HelpCenterAdapter(this, fragments)
         binding.viewPager.adapter = adapter
-
-        parentFragmentManager.setFragmentResultListener("booking_request_key", viewLifecycleOwner) { _, bundle ->
-            val selectedTab = bundle.getString("selected_tab")
-            if (selectedTab == "upcoming") {
-                selectedTab.let {
-                    binding.viewPager.post { binding.viewPager.currentItem = 2 }
-                }
-            }
-        }
-
+        binding.viewPager.offscreenPageLimit = fragments.size
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = when (position) {
@@ -60,6 +49,11 @@ class BookingFragment : Fragment() {
                 else -> getString(R.string.cancelled)
             }
         }.attach()
+
+        binding.viewPager.post {
+            refreshFragment(0)
+        }
+
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 refreshFragment(tab.position)
@@ -73,10 +67,8 @@ class BookingFragment : Fragment() {
         })
     }
     private fun refreshFragment(position: Int) {
-        val tag = "f$position"   // ViewPager2 fragment tag
-        val fragment = childFragmentManager.findFragmentByTag(tag)
-
-        when (fragment) {
+        val tag = "f$position"
+        when (val fragment = childFragmentManager.findFragmentByTag(tag)) {
             is PendingBookingFragment -> fragment.refresh()
             is OngoingBookingFragment -> fragment.refresh()
             is UpcomingBookingsFragment -> fragment.refresh()
@@ -84,5 +76,4 @@ class BookingFragment : Fragment() {
             is CancelledBookingFragment -> fragment.refresh()
         }
     }
-
 }

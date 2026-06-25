@@ -6,7 +6,6 @@ import androidx.preference.PreferenceManager.getDefaultSharedPreferences
 class PrefsHelper(context: Context) {
     /* Init sharedPreferences with injected context*/
     val sharedPref = getDefaultSharedPreferences(context)
-    var token by PrefsStringDelegate(PrefKeys.USER_TOKEN)
     var isLoggedIn by PrefsBooleanDelegate(PrefKeys.IS_LOGIN)
     var isFirstTime by PrefsBooleanDelegate(PrefKeys.IS_FIRST_TIME)
     
@@ -23,16 +22,11 @@ class PrefsHelper(context: Context) {
     var status by PrefsIntDelegate(PrefKeys.STATUS)
     var selectedLanguageName by PrefsStringDelegate(PrefKeys.SELECTED_LANGUAGE_NAME)
     var selectedLanguageCode by PrefsStringDelegate(PrefKeys.SELECTED_LANGUAGE_CODE)
-
-
 }
-
 
 object PrefKeys {
     const val IS_LOGIN = "UESR_iS_LOGIN"
-    const val USER_TOKEN = "UESR_TOKEN"
     const val IS_FIRST_TIME = "IS_FIRST_TIME"
-    
     const val AUTH_TOKEN = "AUTH_TOKEN"
     const val CREATED_AT = "CREATED_AT"
     const val DEVICE_TOKEN = "DEVICE_TOKEN"

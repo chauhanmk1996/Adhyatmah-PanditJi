@@ -103,7 +103,6 @@ class SettingsFragment : Fragment() {
         progressBar = AppUtils.progressDialog(requireActivity())
 //        apiVm.getDeleteAccount(prefs.authToken)
 //            .observe(requireActivity()) { it ->
-//                println("PankajSingh:$it")
 //                when (it) {
 //                    is Resource.Success -> {
 //                        progressBar?.dismiss()

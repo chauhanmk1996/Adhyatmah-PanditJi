@@ -26,7 +26,7 @@
                 android:orientation="horizontal"
                 tools:ignore="MissingConstraints,UseCompoundDrawables">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvGreeting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvTittle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                         app:shapeAppearanceOverlay="@style/CircularImageView"
                         android:scaleType="centerCrop" />
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/camera_icon"
                         android:layout_width="@dimen/thirty"
                         android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
 
                 </FrameLayout>
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginBottom="10dp"/>
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_marginTop="@dimen/_5sdp"
                     android:id="@+id/tvEmail"
                     android:layout_width="wrap_content"
@@ -190,7 +190,7 @@
 <!--            android:orientation="horizontal"-->
 <!--            tools:ignore="MissingConstraints,UseCompoundDrawables">-->
 
-<!--            <TextView-->
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
 <!--                android:layout_marginStart="30dp"-->
 <!--                android:id="@+id/tvGreeting"-->
 <!--                android:layout_width="match_parent"-->
@@ -212,7 +212,7 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content">-->
 
-<!--        <ImageView-->
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
 <!--            android:id="@+id/ivBack"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
@@ -221,7 +221,7 @@
 <!--            app:layout_constraintTop_toTopOf="parent"-->
 <!--            app:layout_constraintStart_toStartOf="parent" />-->
 
-<!--        <TextView-->
+<!--        <androidx.appcompat.widget.AppCompatTextView-->
 <!--            android:id="@+id/tvTittle"-->
 <!--            android:layout_width="0dp"-->
 <!--            android:layout_height="wrap_content"-->
@@ -251,7 +251,7 @@
 <!--            app:layout_constraintTop_toTopOf="parent"-->
 <!--            app:layout_constraintEnd_toEndOf="parent">-->
 
-<!--            <ImageView-->
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
 <!--                android:id="@+id/ivArrow"-->
 <!--                app:layout_constraintEnd_toEndOf="parent"-->
 <!--                app:layout_constraintTop_toTopOf="parent"-->
@@ -278,7 +278,7 @@
 <!--                    app:shapeAppearanceOverlay="@style/CircularImageView"-->
 <!--                    android:scaleType="centerCrop" />-->
 
-<!--                <ImageView-->
+<!--                <androidx.appcompat.widget.AppCompatImageView-->
 <!--                    android:id="@+id/camera_icon"-->
 <!--                    android:layout_width="15dp"-->
 <!--                    android:layout_height="15dp"-->
@@ -288,7 +288,7 @@
 
 <!--            </FrameLayout>-->
 
-<!--            <TextView-->
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
 <!--                android:layout_marginStart="16dp"-->
 <!--                android:id="@+id/userName"-->
 <!--                android:layout_width="0dp"-->
@@ -303,7 +303,7 @@
 <!--                app:layout_constraintEnd_toStartOf="@id/ivArrow"-->
 <!--                android:layout_marginBottom="10dp"/>-->
 
-<!--            <TextView-->
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
 <!--                android:layout_marginStart="16dp"-->
 <!--                android:layout_marginTop="4dp"-->
 <!--                android:id="@+id/tvEmail"-->

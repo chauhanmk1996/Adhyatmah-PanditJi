@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTittle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/deleteIcon"
             android:layout_width="25dp"
             android:layout_height="22dp"
@@ -61,7 +61,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/deleteText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
             app:layout_constraintEnd_toStartOf="@id/deleteArrow"
             android:layout_marginStart="12dp" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/deleteArrow"
             android:layout_width="25dp"
             android:layout_height="22dp"
@@ -104,7 +104,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/notificationIcon"
             android:layout_width="25dp"
             android:layout_height="22dp"
@@ -114,7 +114,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/notificationText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
             app:layout_constraintEnd_toStartOf="@id/deleteArrow1"
             android:layout_marginStart="12dp" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/deleteArrow1"
             android:layout_width="25dp"
             android:layout_height="22dp"
@@ -156,7 +156,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/taskSquareImage"
             android:layout_width="25dp"
             android:layout_height="22dp"
@@ -166,7 +166,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/taskSquareText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -180,7 +180,7 @@
             app:layout_constraintEnd_toStartOf="@id/deleteArrow2"
             android:layout_marginStart="12dp" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/deleteArrow2"
             android:layout_width="25dp"
             android:layout_height="22dp"
@@ -208,7 +208,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/privacyPolicyImage"
             android:layout_width="25dp"
             android:layout_height="22dp"
@@ -218,7 +218,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/privacyPolicyText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -232,7 +232,7 @@
             app:layout_constraintEnd_toStartOf="@id/deleteArrow3"
             android:layout_marginStart="12dp" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/deleteArrow3"
             android:layout_width="25dp"
             android:layout_height="22dp"
@@ -260,7 +260,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/aboutUSImage"
             android:layout_width="25dp"
             android:layout_height="22dp"
@@ -270,7 +270,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/aboutUSText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -284,7 +284,7 @@
             app:layout_constraintEnd_toStartOf="@id/deleteArrow4"
             android:layout_marginStart="12dp" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/deleteArrow4"
             android:layout_width="25dp"
             android:layout_height="22dp"

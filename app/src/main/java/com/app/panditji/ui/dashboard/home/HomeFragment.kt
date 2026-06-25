@@ -36,7 +36,7 @@ import com.app.panditji.utils.extensions.toast
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : Fragment(),UpComingBookingAdapter.OnItemClickListener {
+class HomeFragment : Fragment(), UpComingBookingAdapter.OnItemClickListener {
     private lateinit var binding: FragmentHomeBinding
     private var currentPage = 0
     private val autoScrollDelay = 3000L
@@ -46,7 +46,7 @@ class HomeFragment : Fragment(),UpComingBookingAdapter.OnItemClickListener {
     private lateinit var upComingBookingAdapter: UpComingBookingAdapter
     private var progressBar: Dialog? = null
 
-//    private val introPages = listOf(
+    //    private val introPages = listOf(
 //        IntroSlideData("", "", R.drawable.banner_img),
 //        IntroSlideData("", "", R.drawable.banner_img),
 //        IntroSlideData("", "", R.drawable.banner_img),
@@ -61,7 +61,7 @@ class HomeFragment : Fragment(),UpComingBookingAdapter.OnItemClickListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
@@ -71,16 +71,17 @@ class HomeFragment : Fragment(),UpComingBookingAdapter.OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         initViews()
-        Log.e("TAG userId ","${prefs.userId}")
+        Log.e("TAG userId ", "${prefs.userId}")
         Log.i("TAG ", "${prefs.fcmToken}")
 
         try {
 
-        }catch (e: Exception){
-            Log.e("TAG","${e.message}")
+        } catch (e: Exception) {
+            Log.e("TAG", "${e.message}")
         }
 
     }
+
     private fun initViews() {
 
         binding.tvRevenueBtn.setOnClickListener {
@@ -105,25 +106,24 @@ class HomeFragment : Fragment(),UpComingBookingAdapter.OnItemClickListener {
 
     private fun hitUpcomingBookingApi() {
 //        progressBar = AppUtils.progressDialog(requireActivity())
-        apiVm.getBookings( "upcoming", prefs.token)
+        apiVm.getBookings("upcoming", prefs.authToken)
             .observe(
                 requireActivity()
             ) { it ->
-                println("UjjwalGupta:$it")
                 when (it) {
                     is Resource.Success -> {
                         progressBar?.dismiss()
                         val data = it.data?.payload?.bookings
 //                        upComingBookingAdapter.setData(data?.bookings)
 
-                        Log.d("TAG","listData $data")
+                        Log.d("TAG", "listData $data")
                         if (data?.isNotEmpty() == true) {
                             loadRcvBooking(it.data.payload.bookings)
 
 //                            binding.rcvUpComing.visibility = View.VISIBLE
 //                            binding.tvNoSlots.visibility = View.GONE
 
-                        }else{
+                        } else {
 //                            binding.tvNoSlots.visibility = View.VISIBLE
 //                            binding.rcvUpComing.visibility = View.GONE
                         }
@@ -137,12 +137,12 @@ class HomeFragment : Fragment(),UpComingBookingAdapter.OnItemClickListener {
                             }
 
                             else -> {
-                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.errorCode}",)
+                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.errorCode}")
                                 Log.e(
                                     "TAG",
                                     "loginUser: ${it.errorBody?.getError()?.errorMessage}",
                                 )
-                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.statusCode}",)
+                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.statusCode}")
                                 it.errorBody?.getError()?.errorMessage?.let { errorMessage ->
                                     requireActivity().toast(errorMessage)
                                 }
@@ -163,7 +163,6 @@ class HomeFragment : Fragment(),UpComingBookingAdapter.OnItemClickListener {
             .observe(
                 requireActivity()
             ) { it ->
-                println("UjjwalGupta:$it")
                 when (it) {
                     is Resource.Success -> {
                         progressBar?.dismiss()
@@ -182,12 +181,12 @@ class HomeFragment : Fragment(),UpComingBookingAdapter.OnItemClickListener {
                             }
 
                             else -> {
-                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.errorCode}",)
+                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.errorCode}")
                                 Log.e(
                                     "TAG",
                                     "loginUser: ${it.errorBody?.getError()?.errorMessage}",
                                 )
-                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.statusCode}",)
+                                Log.e("TAG", "loginUser: ${it.errorBody?.getError()?.statusCode}")
                                 it.errorBody?.getError()?.errorMessage?.let { errorMessage ->
                                     requireActivity().toast(errorMessage)
                                 }
@@ -202,13 +201,14 @@ class HomeFragment : Fragment(),UpComingBookingAdapter.OnItemClickListener {
             }
     }
 
-    private fun loadRcvBooking(list: List<GetBookingResponse.Payload.Booking>){
-        binding.rcvUpComingList.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL,false)
+    private fun loadRcvBooking(list: List<GetBookingResponse.Payload.Booking>) {
+        binding.rcvUpComingList.layoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
         upComingBookingAdapter = UpComingBookingAdapter(
             requireActivity(),
             this@HomeFragment,
             list.toMutableList()
-        ){ data ->
+        ) { data ->
             val bundle = Bundle()
             bundle.putString("from", AppConstants.PENDING)
             bundle.putParcelable("data", data)
@@ -242,7 +242,8 @@ class HomeFragment : Fragment(),UpComingBookingAdapter.OnItemClickListener {
         handler.postDelayed(runnable, autoScrollDelay)
 
         // Optional: Update current page manually if user swipes
-        binding.bannerViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        binding.bannerViewPager.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 currentPage = position
             }

@@ -26,7 +26,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvWelcome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                             android:src="@drawable/pandit_ji_img"
                             app:shapeAppearanceOverlay="@style/CircularImageView" />
 
-                        <ImageView
+                        <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/camera_icon"
                             android:layout_width="@dimen/fourty_dp"
                             android:layout_height="@dimen/fourty_dp"
@@ -77,7 +77,7 @@
                             android:src="@drawable/edit_pen_icon" />
                     </FrameLayout>
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/label_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
                         android:textSize="15sp"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_name"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -106,7 +106,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintTop_toBottomOf="@id/label_name" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -116,7 +116,7 @@
                         android:textSize="15sp"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_last_name"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -133,7 +133,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintTop_toBottomOf="@id/label_name" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/label_phone_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/et_email" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_phone_number"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -167,7 +167,7 @@
 
 
                     <!-- Email Label -->
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/label_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -180,7 +180,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/et_name" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_email"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -199,7 +199,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/label_email" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/label_password"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -212,7 +212,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/et_email" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_password"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -231,7 +231,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/label_password" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -254,7 +254,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/llr">
 
-                        <TextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/et_dob"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -269,7 +269,7 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -279,7 +279,7 @@
                         android:textSize="15sp"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_Gotra"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -296,7 +296,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintTop_toBottomOf="@id/label_name" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
 
                         android:id="@+id/label_prawar"
                         android:layout_width="wrap_content"
@@ -310,7 +310,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/et_name" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
 
                         android:id="@+id/et_Prawar"
                         android:layout_width="match_parent"
@@ -328,7 +328,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/label_email" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
 
 
                         android:layout_width="wrap_content"
@@ -341,7 +341,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/frImage" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/etVeda"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -356,7 +356,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintTop_toBottomOf="@id/label_name" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
 
 
                         android:layout_width="wrap_content"
@@ -369,7 +369,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/frImage" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/etShakha"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -384,7 +384,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintTop_toBottomOf="@id/label_name" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
 
 
                         android:layout_width="wrap_content"
@@ -397,7 +397,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/frImage" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/etPankti"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -412,7 +412,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintTop_toBottomOf="@id/label_name" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
 
 
                         android:layout_width="wrap_content"
@@ -425,7 +425,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/frImage" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/etSutra"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -440,7 +440,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintTop_toBottomOf="@id/label_name" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -449,7 +449,7 @@
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/etAadharNumber"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -465,7 +465,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintTop_toBottomOf="@id/label_name" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -476,7 +476,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/frImage" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/etServices"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -491,7 +491,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintTop_toBottomOf="@id/label_name" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -502,7 +502,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/frImage" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/etLanguage"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -517,7 +517,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintTop_toBottomOf="@id/label_name" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -527,7 +527,7 @@
                         android:textSize="14sp" />
 
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/etExperience"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -541,7 +541,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -551,7 +551,7 @@
                         android:textSize="15sp"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/et_About"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -567,7 +567,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintTop_toBottomOf="@id/label_name" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -577,7 +577,7 @@
                         android:textSize="14sp" />
 
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -591,7 +591,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -601,7 +601,7 @@
                         android:textSize="14sp" />
 
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/state"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -615,7 +615,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -625,7 +625,7 @@
                         android:textSize="14sp" />
 
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/city"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -639,7 +639,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -649,7 +649,7 @@
                         android:textSize="14sp" />
 
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/pincode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -663,7 +663,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -673,7 +673,7 @@
                         android:textSize="14sp" />
 
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/country"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -687,7 +687,7 @@
                         android:textSize="@dimen/sixteen_sp"
                         app:layout_constraintStart_toStartOf="parent" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/fifteen"
@@ -697,7 +697,7 @@
                         android:textSize="14sp" />
 
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/referral_code"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -734,7 +734,7 @@
                     app:iconTint="@color/white"
                     app:layout_constraintTop_toBottomOf="@id/llr" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvAlreadyHaveAccount"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -749,7 +749,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnSignUp" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivOr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -772,7 +772,7 @@
                     android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/ivOr">
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/ivGoogle"
                         android:layout_width="@dimen/twenty_four_dp"
                         android:layout_height="@dimen/twenty_four_dp"
@@ -782,7 +782,7 @@
                         app:layout_constraintEnd_toStartOf="@id/tvGoogle"
                         app:layout_constraintTop_toTopOf="@id/ivGoogle" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvGoogle"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -809,7 +809,7 @@
                     android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/google">
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/ivApple"
                         android:layout_width="@dimen/twenty_four_dp"
                         android:layout_height="@dimen/twenty_four_dp"
@@ -819,7 +819,7 @@
                         app:layout_constraintEnd_toStartOf="@id/tvApple"
                         app:layout_constraintTop_toTopOf="@id/ivApple" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvApple"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"

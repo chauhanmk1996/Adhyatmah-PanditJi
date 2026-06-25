@@ -125,8 +125,6 @@ class apiVm (private val apiRepo: apiRepo): ViewModel() {
     fun getAvailableSlots(vendorId: Int?, courtId:Int?, sportId: String?,fromDate:String) =
         liveData { emit(apiRepo.getAvailableSlots(vendorId,courtId,sportId,fromDate).value) }
 
-//    fun getBookingList(authToken: String, filter: String, perPage: Int, page: Int) =
-//        liveData { emit(apiRepo.getBookingList(authToken,filter, perPage,page).value) }
     fun getBookings(type:String, authToken: String) =
         liveData { emit(apiRepo.getBookings(type, authToken,).value) }
 

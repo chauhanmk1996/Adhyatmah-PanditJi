@@ -30,6 +30,7 @@ data class GetProfileResponse(
             val phone: String,
             val gender: String,
             val role: String,
+            val referral_code: String,
             val address: Address,
             val services: List<GetAllServicesResponse.Payload.Service>,
             val language: List<String>,

@@ -21,14 +21,14 @@
             android:paddingTop="35dp"
             android:paddingBottom="17dp"
             android:paddingHorizontal="20dp">
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/backButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="50dp"
                 android:layout_height="20dp"
                 android:src="@drawable/back_arrow"/>
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/faq_s_section"
