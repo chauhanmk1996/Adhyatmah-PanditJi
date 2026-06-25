@@ -81,7 +81,7 @@ class PendingBookingFragment : Fragment() {
                 openDialPad(phone)
             }
         )
-        binding.rcvOnGoing.adapter = previousBookingAdapter
+        binding.rvPending.adapter = previousBookingAdapter
     }
 
     private fun getBookingList() {
@@ -95,11 +95,11 @@ class PendingBookingFragment : Fragment() {
                     Log.d("TAG", "listData $data")
                     if (data?.isNotEmpty() == true) {
                         loadRcvBooking(it.data.payload.bookings)
-                        binding.rcvOnGoing.visibility = View.VISIBLE
+                        binding.rvPending.visibility = View.VISIBLE
                         binding.tvNoSlots.visibility = View.GONE
                     } else {
                         binding.tvNoSlots.visibility = View.VISIBLE
-                        binding.rcvOnGoing.visibility = View.GONE
+                        binding.rvPending.visibility = View.GONE
                     }
                 }
 

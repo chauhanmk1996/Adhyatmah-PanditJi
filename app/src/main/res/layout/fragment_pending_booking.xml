@@ -6,10 +6,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.dashboard.booking.UpcomingBookingsFragment">
+        tools:context=".ui.dashboard.booking.PendingBookingFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvOnGoing"
+            android:id="@+id/rvPending"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"

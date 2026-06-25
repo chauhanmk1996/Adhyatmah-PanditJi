@@ -70,7 +70,7 @@ class CancelledBookingFragment : Fragment() {
                 openDialPad(phone)
             }
         )
-        binding.rcvOnGoing.adapter = previousBookingAdapter
+        binding.rvCancelled.adapter = previousBookingAdapter
     }
 
     private fun getBookingList() {
@@ -83,11 +83,11 @@ class CancelledBookingFragment : Fragment() {
                         if (data?.isNotEmpty() == true) {
                             loadRcvBooking(it.data.payload.bookings)
 
-                            binding.rcvOnGoing.visibility = View.VISIBLE
+                            binding.rvCancelled.visibility = View.VISIBLE
                             binding.tvNoSlots.visibility = View.GONE
                         } else {
                             binding.tvNoSlots.visibility = View.VISIBLE
-                            binding.rcvOnGoing.visibility = View.GONE
+                            binding.rvCancelled.visibility = View.GONE
                         }
                     }
 

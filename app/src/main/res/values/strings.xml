@@ -350,4 +350,8 @@
     <string name="puja_kit">Puja Kit</string>
     <string name="instant_kit">Instant Kit</string>
     <string name="no_revenue_found">No revenue Found!</string>
+    <string name="pending_booking">Pending Booking</string>
+    <string name="cancelled_booking">Cancelled Booking</string>
+    <string name="previous_booking">Previous Booking</string>
+    <string name="ongoing_booking">Ongoing Booking</string>
 </resources>

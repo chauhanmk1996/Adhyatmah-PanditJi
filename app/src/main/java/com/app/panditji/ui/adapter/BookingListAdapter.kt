@@ -41,8 +41,8 @@ class BookingListAdapter(
             tvBookingId.text = data.bookingID
 
             Glide.with(context!!).load(data.customer.image)
-                .placeholder(R.drawable.pamdit_ji)
-                .error(R.drawable.pamdit_ji)
+                .placeholder(R.drawable.profile_icon)
+                .error(R.drawable.profile_icon)
                 .into(ivProf)
 
             val name = data.customer.firstName + " " + data.customer.lastName

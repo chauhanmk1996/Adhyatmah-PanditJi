@@ -9,42 +9,91 @@ import androidx.navigation.fragment.findNavController
 import com.app.panditji.R
 import com.app.panditji.data.model.get_booking.GetBookingResponse
 import com.app.panditji.databinding.FragmentUpcomingBookingDetailsBinding
+import com.app.panditji.utils.extensions.hide
+import com.app.panditji.utils.extensions.show
+import com.bumptech.glide.Glide
 
 class UpcomingBookingDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentUpcomingBookingDetailsBinding
     var bookingId: String? = null
-    var titles: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         binding = FragmentUpcomingBookingDetailsBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val booking = arguments?.getParcelable<GetBookingResponse.Payload.Booking>("data")
         booking?.let {
+            when(it.status){
+                "pending"->{
+                    binding.tvTittle.text = getString(R.string.pending_booking)
+                }
+
+                "ongoing"->{
+                    binding.tvTittle.text = getString(R.string.ongoing_booking)
+                }
+
+                "upcoming"->{
+                    binding.tvTittle.text = getString(R.string.upcoming_booking)
+                }
+
+                "previous"->{
+                    binding.tvTittle.text = getString(R.string.previous_booking)
+                }
+
+                "cancelled"->{
+                    binding.tvTittle.text = getString(R.string.cancelled_booking)
+                }
+            }
+
             bookingId = it.bookingID
             val bookingIdText = "${getString(R.string.booking_id)} ${it.bookingID}"
             binding.bookingId.text = bookingIdText
+
+            Glide.with(requireContext()).load(it.customer.image)
+                .placeholder(R.drawable.profile_icon)
+                .error(R.drawable.profile_icon)
+                .into(binding.profileImage)
+
+            val customerName = "${it.customer.firstName} ${it.customer.lastName}"
+            binding.userName.text = customerName
+
             binding.poojaName.text = it.poojaType
-            val address =
-                it.address.streetAddress + ", " + it.address.city + ", " + it.address.state + ", " + it.address.country + " - " + it.address.zip
+
+            val address = it.address.streetAddress + ", " + it.address.city + ", " + it.address.state + ", " + it.address.country + " - " + it.address.zip
             binding.address.text = address
 
-            val pujaSamagri = buildList {
-                addAll(it.pujaSamagri?.pujaKit.orEmpty())
-                addAll(it.pujaSamagri?.instantKit.orEmpty())
-            }.joinToString(", ")
+            if (it.pujaSamagri?.pujaKit.isNullOrEmpty() && it.pujaSamagri?.instantKit.isNullOrEmpty()) {
+                binding.poojaSamagriHeading.hide()
+                binding.poojaSamagri.hide()
+            } else {
+                val pujaKit = it.pujaSamagri.pujaKit?.joinToString(", ").orEmpty()
+                val instantKit = it.pujaSamagri.instantKit?.joinToString(", ").orEmpty()
 
-            binding.poojaSamagri.text = pujaSamagri
+                val pujaSamagri = buildString {
+                    if (pujaKit.isNotEmpty()) {
+                        append("${getString(R.string.puja_kit)} - $pujaKit")
+                    }
+
+                    if (instantKit.isNotEmpty()) {
+                        if (isNotEmpty()) append("\n")
+                        append("${getString(R.string.instant_kit)} - $instantKit")
+                    }
+                }
+
+                binding.poojaSamagriHeading.show()
+                binding.poojaSamagri.show()
+                binding.poojaSamagri.text = pujaSamagri
+            }
 
             binding.dateTime.text = it.dateTime
+
             val amount = "₹ ${it.paymentAmount}"
             binding.totalFees.text = amount
         }
@@ -52,9 +101,5 @@ class UpcomingBookingDetailsFragment : Fragment() {
         binding.ivBack.setOnClickListener {
             findNavController().popBackStack()
         }
-
-        binding.tvTittle.text = titles
-
     }
-
 }
