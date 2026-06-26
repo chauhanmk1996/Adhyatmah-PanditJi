@@ -43,7 +43,7 @@ class BookingListAdapter(
             Glide.with(context!!).load(data.customer.image)
                 .placeholder(R.drawable.profile_icon)
                 .error(R.drawable.profile_icon)
-                .into(ivProf)
+                .into(imageCardView)
 
             val name = data.customer.firstName + " " + data.customer.lastName
             btNameId.text = name

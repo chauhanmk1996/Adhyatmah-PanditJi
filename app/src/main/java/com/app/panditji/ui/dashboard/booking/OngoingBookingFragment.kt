@@ -32,7 +32,6 @@ class OngoingBookingFragment : Fragment() {
     private val prefs by inject<PrefsHelper>()
     private var progressBar: Dialog? = null
     private val apiVm by viewModel<apiVm>()
-    var ongoing = "ongoing"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

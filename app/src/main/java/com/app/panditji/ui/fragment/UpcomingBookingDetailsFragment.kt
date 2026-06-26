@@ -9,6 +9,8 @@ import androidx.navigation.fragment.findNavController
 import com.app.panditji.R
 import com.app.panditji.data.model.get_booking.GetBookingResponse
 import com.app.panditji.databinding.FragmentUpcomingBookingDetailsBinding
+import com.app.panditji.utils.AppConstants
+import com.app.panditji.utils.AppUtils
 import com.app.panditji.utils.extensions.hide
 import com.app.panditji.utils.extensions.show
 import com.bumptech.glide.Glide
@@ -16,7 +18,8 @@ import com.bumptech.glide.Glide
 class UpcomingBookingDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentUpcomingBookingDetailsBinding
-    var bookingId: String? = null
+    private var bookingId: String? = null
+    private var from: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,29 +31,32 @@ class UpcomingBookingDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        from = arguments?.getString("from")?:""
+        when(from){
+            AppConstants.PENDING->{
+                binding.tvTittle.text = getString(R.string.pending_booking)
+            }
+
+            AppConstants.ON_GOING->{
+                binding.tvTittle.text = getString(R.string.ongoing_booking)
+            }
+
+            AppConstants.UP_COMING->{
+                binding.tvTittle.text = getString(R.string.upcoming_booking)
+            }
+
+            AppConstants.PREVIOUS->{
+                binding.tvTittle.text = getString(R.string.previous_booking)
+            }
+
+            AppConstants.CANCELLED->{
+                binding.tvTittle.text = getString(R.string.cancelled_booking)
+            }
+        }
+
         val booking = arguments?.getParcelable<GetBookingResponse.Payload.Booking>("data")
         booking?.let {
-            when(it.status){
-                "pending"->{
-                    binding.tvTittle.text = getString(R.string.pending_booking)
-                }
 
-                "ongoing"->{
-                    binding.tvTittle.text = getString(R.string.ongoing_booking)
-                }
-
-                "upcoming"->{
-                    binding.tvTittle.text = getString(R.string.upcoming_booking)
-                }
-
-                "previous"->{
-                    binding.tvTittle.text = getString(R.string.previous_booking)
-                }
-
-                "cancelled"->{
-                    binding.tvTittle.text = getString(R.string.cancelled_booking)
-                }
-            }
 
             bookingId = it.bookingID
             val bookingIdText = "${getString(R.string.booking_id)} ${it.bookingID}"
@@ -92,7 +98,7 @@ class UpcomingBookingDetailsFragment : Fragment() {
                 binding.poojaSamagri.text = pujaSamagri
             }
 
-            binding.dateTime.text = it.dateTime
+            binding.dateTime.text = AppUtils.formatDate(it.dateTime)
 
             val amount = "₹ ${it.paymentAmount}"
             binding.totalFees.text = amount

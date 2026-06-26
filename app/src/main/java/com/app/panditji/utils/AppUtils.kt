@@ -77,7 +77,6 @@ object AppUtils {
     fun formatDate(inputDate: String?): String {
         if (inputDate.isNullOrEmpty()) return ""
         return try {
-            // Input format (with 'Z' indicating UTC timezone)
             val inputFormat =
                 SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
             inputFormat.timeZone = TimeZone.getTimeZone("UTC")

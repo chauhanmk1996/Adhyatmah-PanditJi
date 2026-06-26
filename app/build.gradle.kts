@@ -46,13 +46,11 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-//    implementation(libs.play.services.location)
     implementation(libs.firebase.auth)
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
@@ -92,7 +90,6 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics:19.4.4")
     implementation("com.google.firebase:firebase-analytics-ktx:21.6.1")
 
-
     //Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.9.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
@@ -121,4 +118,6 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx:22.1.1")
 
     implementation("com.hbb20:ccp:2.5.4")
+
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }
