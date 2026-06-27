@@ -686,7 +686,7 @@ class RegisterFragment : Fragment() {
 
         val recyclerView = dialogView.findViewById<RecyclerView>(R.id.rvLanguages)
         val btnAdd =
-            dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.btnAdd)
+            dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.btnAdd)
 
         // Full list of languages (you can come from API or static)
         val languageList = listOf(

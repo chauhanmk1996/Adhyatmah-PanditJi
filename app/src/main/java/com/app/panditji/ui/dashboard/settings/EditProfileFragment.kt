@@ -82,8 +82,7 @@ class EditProfileFragment : Fragment() {
     private var isImageUpdated = false
 
 
-
-//    private lateinit var aadhaarImageView: ImageView
+    //    private lateinit var aadhaarImageView: ImageView
     private var aadhaarFile: File? = null
     private var aadhaarMimeType: String = ""
     private var isAadhaarImageUpdated = false
@@ -92,13 +91,13 @@ class EditProfileFragment : Fragment() {
     private var servicesList: List<GetAllServicesResponse.Payload.Service> = listOf()
 
 
-
-    companion object{
+    companion object {
         const val CAMERA_REQUEST_CODE = 1001
         const val IMAGE_PICK_CODE = 1002
         const val CAMERA_PERMISSION_CODE = 1003
 //        const val GALLERY_PERMISSION_CODE = 1004
     }
+
     private val photoPickerLauncher =
         registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
             uri?.let {
@@ -128,7 +127,7 @@ class EditProfileFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentEditProfileBinding.inflate(layoutInflater)
         return binding.root
@@ -182,7 +181,7 @@ class EditProfileFragment : Fragment() {
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
-                id: Long
+                id: Long,
             ) {
                 selectedGender = genderOptions[position]
             }
@@ -220,11 +219,11 @@ class EditProfileFragment : Fragment() {
                     shakha = binding.etShakha.getString(),
                     sutra = binding.etSutra.getString(),
                     address = binding.address.getString(),
-                    state =  binding.state.getString(),
+                    state = binding.state.getString(),
                     city = binding.city.getString(),
                     zip = binding.pincode.getString(),
                     country = binding.country.getString(),
-                    language  = selectedLanguages.map { it.lowercase() }.toMutableList(),
+                    language = selectedLanguages.map { it.lowercase() }.toMutableList(),
                     services = selectedServices.map { it.id },
                     aadhar = binding.etAadhar.getString()
                 )
@@ -285,48 +284,74 @@ class EditProfileFragment : Fragment() {
 
         // Upload profile image first
         val requestFileProfile = file!!.asRequestBody("image/*".toMediaTypeOrNull())
-        val filePartProfile = MultipartBody.Part.createFormData("file", file!!.name, requestFileProfile)
+        val filePartProfile =
+            MultipartBody.Part.createFormData("file", file!!.name, requestFileProfile)
         val customerIdBody = prefs.userId.toRequestBody("text/plain".toMediaTypeOrNull())
 
-        apiVm.uploadImage(filePartProfile, customerIdBody).observe(requireActivity()) { resultProfile ->
-            when (resultProfile) {
-                is Resource.Success -> {
-                    val profileUrl = resultProfile.data?.payload?.url
-                    if (profileUrl != null) {
-                        request.image = profileUrl
+        apiVm.uploadImage(filePartProfile, customerIdBody)
+            .observe(requireActivity()) { resultProfile ->
+                when (resultProfile) {
+                    is Resource.Success -> {
+                        val profileUrl = resultProfile.data?.payload?.url
+                        if (profileUrl != null) {
+                            request.image = profileUrl
 
-                        // Now upload Aadhaar image
-                        val requestFileAadhaar = aadhaarFile!!.asRequestBody("image/*".toMediaTypeOrNull())
-                        val filePartAadhaar = MultipartBody.Part.createFormData("file", aadhaarFile!!.name, requestFileAadhaar)
+                            // Now upload Aadhaar image
+                            val requestFileAadhaar =
+                                aadhaarFile!!.asRequestBody("image/*".toMediaTypeOrNull())
+                            val filePartAadhaar = MultipartBody.Part.createFormData(
+                                "file",
+                                aadhaarFile!!.name,
+                                requestFileAadhaar
+                            )
 
-                        apiVm.uploadImage(filePartAadhaar, customerIdBody).observe(requireActivity()) { resultAadhaar ->
-                            progressBar?.dismiss()
-                            when (resultAadhaar) {
-                                is Resource.Success -> {
-                                    val aadhaarUrl = resultAadhaar.data?.payload?.url
-                                    if (aadhaarUrl != null) {
-                                        request.aadhar = aadhaarUrl
-                                        updateProfile(request)
-                                    } else {
-                                        Toast.makeText(requireContext(), "Failed to get Aadhaar URL", Toast.LENGTH_SHORT).show()
+                            apiVm.uploadImage(filePartAadhaar, customerIdBody)
+                                .observe(requireActivity()) { resultAadhaar ->
+                                    progressBar?.dismiss()
+                                    when (resultAadhaar) {
+                                        is Resource.Success -> {
+                                            val aadhaarUrl = resultAadhaar.data?.payload?.url
+                                            if (aadhaarUrl != null) {
+                                                request.aadhar = aadhaarUrl
+                                                updateProfile(request)
+                                            } else {
+                                                Toast.makeText(
+                                                    requireContext(),
+                                                    "Failed to get Aadhaar URL",
+                                                    Toast.LENGTH_SHORT
+                                                ).show()
+                                            }
+                                        }
+
+                                        is Resource.Error -> {
+                                            Toast.makeText(
+                                                requireContext(),
+                                                "Failed to upload Aadhaar image",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
                                     }
                                 }
-                                is Resource.Error -> {
-                                    Toast.makeText(requireContext(), "Failed to upload Aadhaar image", Toast.LENGTH_SHORT).show()
-                                }
-                            }
+                        } else {
+                            progressBar?.dismiss()
+                            Toast.makeText(
+                                requireContext(),
+                                "Failed to upload profile image",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
-                    } else {
+                    }
+
+                    is Resource.Error -> {
                         progressBar?.dismiss()
-                        Toast.makeText(requireContext(), "Failed to upload profile image", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            requireContext(),
+                            "Failed to upload profile image",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
-                is Resource.Error -> {
-                    progressBar?.dismiss()
-                    Toast.makeText(requireContext(), "Failed to upload profile image", Toast.LENGTH_SHORT).show()
-                }
             }
-        }
     }
 
 
@@ -493,7 +518,8 @@ class EditProfileFragment : Fragment() {
         dialog.setContentView(view)
 
         val camera = view.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.openCamera)
-        val gallery = view.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.openGallery)
+        val gallery =
+            view.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.openGallery)
 
         camera.setOnClickListener {
             currentImageForAadhaar = isForAadhaar
@@ -509,6 +535,7 @@ class EditProfileFragment : Fragment() {
 
         dialog.show()
     }
+
     private fun openPhotoPicker() {
         photoPickerLauncher.launch(
             PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
@@ -549,6 +576,7 @@ class EditProfileFragment : Fragment() {
                 }
             }
     }
+
     private fun updateProfile(model: UpdateProfile?) {
         model?.accessToken = prefs.authToken
         progressBar = AppUtils.progressDialog(requireActivity())
@@ -564,7 +592,8 @@ class EditProfileFragment : Fragment() {
                         prefs.lastName = model?.lastName ?: ""
                         prefs.email = model?.email ?: ""
                         prefs.phone = model?.phone ?: ""
-                        if (model?.image?.isNotEmpty() == true && model.image!=null) prefs.profileImage = model.image ?: ""
+                        if (model?.image?.isNotEmpty() == true && model.image != null) prefs.profileImage =
+                            model.image ?: ""
                         findNavController().popBackStack()
                         Toast.makeText(requireActivity(), "${it.data?.message}", Toast.LENGTH_SHORT)
                             .show()
@@ -591,23 +620,26 @@ class EditProfileFragment : Fragment() {
                 }
             }
     }
+
     private fun uploadMedia(request: UpdateProfile) {
         uploadGenericImage(file, "profile", request) { imageUrl ->
             request.image = imageUrl
             updateProfile(request)
         }
     }
+
     private fun uploadAadhaarImage(request: UpdateProfile) {
         uploadGenericImage(aadhaarFile, "aadhaar", request) { imageUrl ->
             request.aadhar = imageUrl  // add this property in your UpdateProfile model
             updateProfile(request)
         }
     }
+
     private fun uploadGenericImage(
         imageFile: File?,
         type: String,
         request: UpdateProfile,
-        onSuccess: (String) -> Unit
+        onSuccess: (String) -> Unit,
     ) {
         if (imageFile == null) {
             Toast.makeText(requireContext(), "No $type image selected", Toast.LENGTH_SHORT).show()
@@ -626,14 +658,17 @@ class EditProfileFragment : Fragment() {
                     val imageUrl = it.data?.payload?.url
                     if (imageUrl != null) onSuccess(imageUrl)
                 }
+
                 is Resource.Error -> {
                     progressBar?.dismiss()
                     requireActivity().toast("Failed to upload $type image")
                 }
+
                 else -> {}
             }
         }
     }
+
     private fun showDatePicker() {
 
         val calendar = Calendar.getInstance()
@@ -673,7 +708,6 @@ class EditProfileFragment : Fragment() {
     }
 
 
-
     private fun setUserData(data: GetProfileResponse.Payload?) {
         with(binding) {
             etName.text = Editable.Factory.getInstance().newEditable(data?.vendor?.firstName)
@@ -691,13 +725,19 @@ class EditProfileFragment : Fragment() {
             etPankti.text = Editable.Factory.getInstance().newEditable(data?.vendor?.pankti ?: "")
             etShakha.text = Editable.Factory.getInstance().newEditable(data?.vendor?.shakha ?: "")
             etSutra.text = Editable.Factory.getInstance().newEditable(data?.vendor?.sutra ?: "")
-            address.text = Editable.Factory.getInstance().newEditable(data?.vendor?.address?.street ?: "")
-            state.text = Editable.Factory.getInstance().newEditable(data?.vendor?.address?.state ?: "")
-            city.text = Editable.Factory.getInstance().newEditable(data?.vendor?.address?.city ?: "")
-            pincode.text = Editable.Factory.getInstance().newEditable(data?.vendor?.address?.zip ?: "")
+            address.text =
+                Editable.Factory.getInstance().newEditable(data?.vendor?.address?.street ?: "")
+            state.text =
+                Editable.Factory.getInstance().newEditable(data?.vendor?.address?.state ?: "")
+            city.text =
+                Editable.Factory.getInstance().newEditable(data?.vendor?.address?.city ?: "")
+            pincode.text =
+                Editable.Factory.getInstance().newEditable(data?.vendor?.address?.zip ?: "")
             etAadhar.text = Editable.Factory.getInstance().newEditable(data?.vendor?.aadhar ?: "")
-            country.text = Editable.Factory.getInstance().newEditable(data?.vendor?.address?.country ?: "")
-            referralCode.text = Editable.Factory.getInstance().newEditable(data?.vendor?.referral_code ?: "")
+            country.text =
+                Editable.Factory.getInstance().newEditable(data?.vendor?.address?.country ?: "")
+            referralCode.text =
+                Editable.Factory.getInstance().newEditable(data?.vendor?.referral_code ?: "")
             Glide.with(requireActivity())
                 .load(data?.vendor?.image?.url)
                 .placeholder(R.drawable.pandit_ji_img)
@@ -742,7 +782,8 @@ class EditProfileFragment : Fragment() {
         bottomSheetDialog.setContentView(dialogView)
         bottomSheetDialog.setOnShowListener { dialog ->
             val d = dialog as BottomSheetDialog
-            val bottomSheet = d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            val bottomSheet =
+                d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             bottomSheet?.let {
                 val behavior = BottomSheetBehavior.from(it)
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
@@ -751,10 +792,24 @@ class EditProfileFragment : Fragment() {
         }
 
         val recyclerView = dialogView.findViewById<RecyclerView>(R.id.rvLanguages)
-        val btnAdd = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.btnAdd)
+        val btnAdd =
+            dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.btnAdd)
 
         // Full list of languages (you can come from API or static)
-        val languageList = listOf("Hindi", "English", "Marathi", "Sanskrit", "Bangali", "Gujarati", "Odia", "Tamil", "Telugu", "Kannada", "Malayalam", "Others")
+        val languageList = listOf(
+            "Hindi",
+            "English",
+            "Marathi",
+            "Sanskrit",
+            "Bangali",
+            "Gujarati",
+            "Odia",
+            "Tamil",
+            "Telugu",
+            "Kannada",
+            "Malayalam",
+            "Others"
+        )
 
         // Already selected ones (capitalize matching)
         val selectedLanguages = mutableListOf<String>()
@@ -778,13 +833,15 @@ class EditProfileFragment : Fragment() {
 
         bottomSheetDialog.show()
     }
+
     private fun selectServices() {
         val dialogView = layoutInflater.inflate(R.layout.language_dialog, null)
         val bottomSheetDialog = BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
         bottomSheetDialog.setContentView(dialogView)
         bottomSheetDialog.setOnShowListener { dialog ->
             val d = dialog as BottomSheetDialog
-            val bottomSheet = d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            val bottomSheet =
+                d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             bottomSheet?.let {
                 val behavior = BottomSheetBehavior.from(it)
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
@@ -793,9 +850,12 @@ class EditProfileFragment : Fragment() {
         }
 
         val recyclerView = dialogView.findViewById<RecyclerView>(R.id.rvLanguages)
-        val btnAdd = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.btnAdd)
-        val title = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvTitle)
-        val description = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvDescription)
+        val btnAdd =
+            dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.btnAdd)
+        val title =
+            dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvTitle)
+        val description =
+            dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvDescription)
         val selectedServices = selectedServices
         binding.etServices.setText(
             selectedServices.joinToString(", ") { it.poojaType }
@@ -822,26 +882,6 @@ class EditProfileFragment : Fragment() {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private fun showGoToSettingsDialog() {
         androidx.appcompat.app.AlertDialog.Builder(requireContext())
             .setTitle("Permission Required")
@@ -850,10 +890,15 @@ class EditProfileFragment : Fragment() {
                 openAppSettings()
             }
             .setNegativeButton("Cancel") { _, _ ->
-                Toast.makeText(requireContext(), "Permission is required to upload profile image.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Permission is required to upload profile image.",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
             .show()
     }
+
     private fun openAppSettings() {
         val intent = Intent(
             android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
@@ -862,9 +907,22 @@ class EditProfileFragment : Fragment() {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
     }
+
     private fun checkPermissionForCamera() {
-        Log.i("TAG", "checkPermissionForCamera: "+"${ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED}")
-        if (ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+        Log.i(
+            "TAG",
+            "checkPermissionForCamera: " + "${
+                ActivityCompat.checkSelfPermission(
+                    requireContext(),
+                    android.Manifest.permission.CAMERA
+                ) == PackageManager.PERMISSION_GRANTED
+            }"
+        )
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                android.Manifest.permission.CAMERA
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
             launchCamera()
         } else {
             requestPermissions(arrayOf(android.Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
@@ -875,7 +933,8 @@ class EditProfileFragment : Fragment() {
     private fun launchCamera() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         if (intent.resolveActivity(requireContext().packageManager) != null) {
-            val photoFile = File(requireContext().cacheDir, "temp_image_${System.currentTimeMillis()}.jpg")
+            val photoFile =
+                File(requireContext().cacheDir, "temp_image_${System.currentTimeMillis()}.jpg")
             val photoUri = FileProvider.getUriForFile(
                 requireContext(),
                 "${requireContext().packageName}.provider",
@@ -944,10 +1003,12 @@ class EditProfileFragment : Fragment() {
             Toast.makeText(requireContext(), "Failed to process image", Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun uriToFileSafe(uri: Uri): File {
         val mime = getMimeTypeFromUri(uri)
         val extension = mime.substringAfterLast("/").let { ".$it" }
-        val tempFile = File(requireContext().cacheDir, "temp_image_${System.currentTimeMillis()}$extension")
+        val tempFile =
+            File(requireContext().cacheDir, "temp_image_${System.currentTimeMillis()}$extension")
 
         try {
             requireContext().contentResolver.openInputStream(uri)?.use { input ->
@@ -979,14 +1040,15 @@ class EditProfileFragment : Fragment() {
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
             if (ifUserPermanentDe(permissions[0])) {
                 showGoToSettingsDialog()
             } else {
-                Toast.makeText(requireContext(), "Permission is required", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Permission is required", Toast.LENGTH_SHORT)
+                    .show()
             }
             return
         }
@@ -1000,9 +1062,10 @@ class EditProfileFragment : Fragment() {
 
     private fun ifUserPermanentDe(permission: String): Boolean {
         return !ActivityCompat.shouldShowRequestPermissionRationale(
-            requireActivity(),permission
+            requireActivity(), permission
         )
     }
+
     private fun bitmapToFile(bitmap: Bitmap): File {
         val file = File(requireContext().cacheDir, "temp_image_${System.currentTimeMillis()}.jpg")
         FileOutputStream(file).use { bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it) }

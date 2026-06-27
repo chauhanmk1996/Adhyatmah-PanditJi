@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -11,28 +11,27 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/language"
-            android:textSize="18sp"
-            android:textColor="@color/black"
+            android:layout_gravity="center"
             android:fontFamily="@font/inter_semibold"
-            android:layout_gravity="center"/>
+            android:text="@string/language"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/please_select_language"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/inter"
-            android:textColor="@color/black"
-            android:layout_marginTop="15dp"/>
+            android:text="@string/please_select_language"
+            android:textColor="@color/black" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvLanguages"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp" />
-
+            android:layout_marginTop="10dp"
+            android:layout_weight="1" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAdd"
@@ -40,12 +39,14 @@
             android:layout_height="55dp"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="16dp"
-            android:text="@string/add"
-            android:fontFamily="@font/roboto_regular"
-            android:textSize="16sp"
             android:backgroundTint="@color/app_color_second"
-            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/add"
             android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             app:cornerRadius="10dp" />
+
     </LinearLayout>
+
 </layout>
