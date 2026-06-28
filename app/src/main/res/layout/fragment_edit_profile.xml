@@ -724,7 +724,6 @@
                         android:layout_marginTop="@dimen/five_dp"
                         android:background="@drawable/grey_bg_box_radi_16dp"
                         android:fontFamily="@font/inter_semibold"
-                        android:inputType="text"
                         android:focusable="false"
                         android:editable="false"
                         android:maxLines="1"

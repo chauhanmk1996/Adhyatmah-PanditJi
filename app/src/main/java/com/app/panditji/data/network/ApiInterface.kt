@@ -96,7 +96,7 @@ interface ApiInterface {
         @Part("role") role: RequestBody,
         @Part services: List<MultipartBody.Part>,  // services[]
         @Part language: List<MultipartBody.Part>,   // language[]
-        @Part("referral_code") referral_code: RequestBody?
+        @Part("referred_by") referred_by: RequestBody?
     ): Response<SignupResponse>
 
 
