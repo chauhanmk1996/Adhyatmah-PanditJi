@@ -782,8 +782,7 @@ class EditProfileFragment : Fragment() {
         bottomSheetDialog.setContentView(dialogView)
         bottomSheetDialog.setOnShowListener { dialog ->
             val d = dialog as BottomSheetDialog
-            val bottomSheet =
-                d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            val bottomSheet = d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             bottomSheet?.let {
                 val behavior = BottomSheetBehavior.from(it)
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
@@ -792,8 +791,7 @@ class EditProfileFragment : Fragment() {
         }
 
         val recyclerView = dialogView.findViewById<RecyclerView>(R.id.rvLanguages)
-        val btnAdd =
-            dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.btnAdd)
+        val btnAdd = dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.btnAdd)
 
         // Full list of languages (you can come from API or static)
         val languageList = listOf(

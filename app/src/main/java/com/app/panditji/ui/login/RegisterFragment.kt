@@ -742,12 +742,9 @@ class RegisterFragment : Fragment() {
         }
 
         val recyclerView = dialogView.findViewById<RecyclerView>(R.id.rvLanguages)
-        val btnAdd =
-            dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.btnAdd)
-        val title =
-            dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvTitle)
-        val description =
-            dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvDescription)
+        val btnAdd = dialogView.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.btnAdd)
+        val title = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvTitle)
+        val description = dialogView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.tvDescription)
         val selectedServices = selectedServices
         binding.etServices.setText(
             selectedServices.joinToString(", ") { it.poojaType }
