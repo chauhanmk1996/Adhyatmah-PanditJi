@@ -92,7 +92,7 @@
     <string name="skip">Skip</string>
     <string name="welcome_let_s_create_your_account">Welcome!\nLet’s create your account</string>
     <string name="enter_name">Enter name</string>
-    <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
     <string name="umpire_trainer">Umpire/Trainer</string>
     <string name="venue_owner">Venue Owner</string>
     <string name="register_as">Register as:</string>
@@ -236,11 +236,11 @@
     <string name="instagram">Instagram</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="first_name">First Name</string>
-    <string name="enter_your_first_name">Enter your first name</string>
+    <string name="enter_your_first_name">Enter Your First Name</string>
     <string name="last_name">Last Name</string>
-    <string name="enter_your_last_name">Enter your last name</string>
+    <string name="enter_your_last_name">Enter Your Last Name</string>
     <string name="gotra">Gotra</string>
-    <string name="enter_your_gotra">Enter your Gotra</string>
+    <string name="enter_your_gotra">Enter Your Gotra</string>
     <string name="prawar">Prawar</string>
     <string name="enter_prawar">Enter Prawar</string>
     <string name="gender">Gender</string>
@@ -256,7 +256,7 @@
     <string name="enter_sutra">Enter Sutra</string>
     <string name="enter_you_number">Enter you number</string>
     <string name="email">Email</string>
-    <string name="enter_your_email_address">Enter your email address</string>
+    <string name="enter_your_email_address">Enter Your Email Address</string>
     <string name="enter_about">Enter About</string>
     <string name="upload_aadhaar_card">Upload Aadhaar Card</string>
     <string name="upload_aadhar">Upload Aadhar</string>
@@ -267,7 +267,7 @@
     <string name="city">City</string>
     <string name="enter_your_city">Enter your city</string>
     <string name="pincode">Pincode</string>
-    <string name="enter_your_pincode">Enter your pincode</string>
+    <string name="enter_your_pincode">Enter Your Pincode</string>
     <string name="email_id">Email id</string>
     <string name="faq_s_section"><![CDATA[FAQ\'s & Support]]></string>
     <string name="password">Password</string>
@@ -277,7 +277,7 @@
     <string name="phone_number_">Phone Number *</string>
     <string name="email_">Email *</string>
     <string name="password_">Password *</string>
-    <string name="enter_your_password">Enter your password</string>
+    <string name="enter_your_password">Enter Your Password</string>
     <string name="already_have_an_account_login">Already have an account? Login</string>
     <string name="recent_booking">Recent Booking</string>
     <string name="settings">Settings</string>
@@ -354,4 +354,14 @@
     <string name="cancelled_booking">Cancelled Booking</string>
     <string name="previous_booking">Previous Booking</string>
     <string name="ongoing_booking">Ongoing Booking</string>
+    <string name="designation">Designation *</string>
+    <string name="select_your_designation">Select Your Designation</string>
+    <string name="select_your_country">Select Your Country</string>
+    <string name="select_your_state">Select Your State</string>
+    <string name="select_your_city">Select Your City</string>
+    <string name="select">Select</string>
+    <string name="select_total_experience">Select Total Experience</string>
+    <string name="error_select_designation">Please select your designation</string>
+    <string name="error_select_at_least_one_service">Please select at least one service</string>
+    <string name="select_your_gender">Select Your Gender</string>
 </resources>

@@ -13,7 +13,7 @@ class ServicesAdapter(
     private val selectedLanguages: MutableList<GetAllServicesResponse.Payload.Service>
 ) : RecyclerView.Adapter<ServicesAdapter.ServiceViewHolder>() {
 
-    inner class ServiceViewHolder(val binding: ItemLanguageBinding) :
+    class ServiceViewHolder(val binding: ItemLanguageBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceViewHolder {

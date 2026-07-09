@@ -57,6 +57,11 @@ import retrofit2.http.Query
 import splitties.init.appCtx
 import java.util.concurrent.TimeUnit
 import com.app.panditji.BuildConfig
+import com.app.panditji.data.model.GetCityResponse
+import com.app.panditji.data.model.GetCountryResponse
+import com.app.panditji.data.model.GetDesignationResponse
+import com.app.panditji.data.model.GetExperienceResponse
+import com.app.panditji.data.model.GetStateResponse
 
 interface ApiInterface {
 
@@ -96,18 +101,18 @@ interface ApiInterface {
         @Part("role") role: RequestBody,
         @Part services: List<MultipartBody.Part>,  // services[]
         @Part language: List<MultipartBody.Part>,   // language[]
-        @Part("referred_by") referred_by: RequestBody?
+        @Part("referred_by") referred_by: RequestBody?,
     ): Response<SignupResponse>
 
 
     @POST("login")
     suspend fun loginUser(
-        @Body model: LoginRequest?
+        @Body model: LoginRequest?,
     ): Response<LoginResponse>
 
     @POST("login-mobile")
     suspend fun loginWithMobile(
-        @Body model: LoginWithMobileRequest?
+        @Body model: LoginWithMobileRequest?,
     ): Response<LoginResponse>
 
     @GET("getBanners")
@@ -115,25 +120,25 @@ interface ApiInterface {
 
     @POST("verify-mobile-otp")
     suspend fun verifyOtp(
-        @Body model: RegistrationModel?
+        @Body model: RegistrationModel?,
     ): Response<VerifyOtpResponse>
 
 
     @POST("resend-mobile-otp")
     suspend fun reSendOtp(
-        @Body model: SendOtpModel?
+        @Body model: SendOtpModel?,
     ): Response<ApiResponse>
 
 
-   /* @DELETE("user/deleteAccount")
-    suspend fun deleteAccount(
-        @Header("auth-token") authToken: String?,
-    ): Response<ApiResponse>*/
+    /* @DELETE("user/deleteAccount")
+     suspend fun deleteAccount(
+         @Header("auth-token") authToken: String?,
+     ): Response<ApiResponse>*/
 
 
     @GET("faqs")
     suspend fun getFaqs(
-        @Query("type") type: String = "USER"
+        @Query("type") type: String = "USER",
     ): Response<ApiResponse>
 
     @GET("aboutUs")
@@ -146,14 +151,14 @@ interface ApiInterface {
         @Query("page") page: Int = 1,
         @Query("search") search: String?,
         @Query("latitude") latitude: Double,
-        @Query("longitude") longitude: Double
+        @Query("longitude") longitude: Double,
     ): Response<ApiResponse>
 
 
     @GET("venue-details/{id}")
     suspend fun getVenueDetailsById(
         @Header("auth-token") authToken: String?,
-        @Path("id") venueId: String?
+        @Path("id") venueId: String?,
     ): Response<ApiResponse>
 
     @POST("logout")
@@ -163,7 +168,7 @@ interface ApiInterface {
 
     @POST("deleteCustomer")
     suspend fun deleteAccount(
-        @Body model: DeleteRequest?
+        @Body model: DeleteRequest?,
     ): Response<ApiResponse>
 
     @GET("panditProfile")
@@ -175,16 +180,38 @@ interface ApiInterface {
     suspend fun getAllServices(
     ): Response<GetAllServicesResponse>
 
+    @GET("aboutList")
+    suspend fun getDesignationList(
+    ): Response<GetDesignationResponse>
+
+    @GET("ExperienceList")
+    suspend fun getExperienceList(
+    ): Response<GetExperienceResponse>
+
+    @GET("countryList")
+    suspend fun getCountryList(
+    ): Response<GetCountryResponse>
+
+    @GET("stateList")
+    suspend fun getStateList(
+        @Query("country") country: String,
+    ): Response<GetStateResponse>
+
+    @GET("cityList")
+    suspend fun getCityList(
+        @Query("state") state: String,
+    ): Response<GetCityResponse>
+
     @POST("updateCustomerProfile")
     suspend fun userUpdateProfile(
-        @Body model: UpdateProfile? = null
+        @Body model: UpdateProfile? = null,
     ): Response<UpdateProfileResponse>
 
     @Multipart
     @POST("upload")
     suspend fun upLoadImg(
         @Part file: MultipartBody.Part,
-        @Part ("customerId") customerId: RequestBody
+        @Part("customerId") customerId: RequestBody,
     ): Response<UploadMediaResponse>
 
     @GET("available-slots")
@@ -192,7 +219,7 @@ interface ApiInterface {
         @Query("vendor_id") vendorId: Int?,
         @Query("court_id") courtId: Int?,
         @Query("sport_id") sportId: String?,  // nullable if it's empty
-        @Query("date") date: String?
+        @Query("date") date: String?,
     ): Response<ApiResponse>
 
     @GET("user/paid-services")
@@ -214,12 +241,12 @@ interface ApiInterface {
         @Header("auth-token") token: String? = null,
         @Query("type") type: String? = null,
     ): Response<GetBookingResponse>
+
     @GET("bookingHistory")
     suspend fun getBookingsInner(
         @Header("auth-token") token: String? = null,
         @Query("type") type: String? = null,
     ): GetBookingResponse
-
 
 
     @POST("updateBookingStatus")
@@ -233,10 +260,6 @@ interface ApiInterface {
         @Header("auth-token") token: String? = null,
         @Body userBookingRequest: UpdateBookingStatusRequest,
     ): GetBookingResponse
-
-
-
-
 
 
     @POST("user/booking/create")
@@ -261,7 +284,7 @@ interface ApiInterface {
     @POST("user/booking/review")
     suspend fun addRateReview(
         @Header("auth-token") token: String?,
-        @Body request: RatingBarRequest
+        @Body request: RatingBarRequest,
     ): Response<ApiResponse>
 
 
@@ -275,12 +298,12 @@ interface ApiInterface {
 
     @POST("get-state")
     suspend fun getStateList(
-        @Body model: GetStateModel?
+        @Body model: GetStateModel?,
     ): Response<ApiResponse>
 
     @POST("get-city")
     suspend fun getCityList(
-        @Body model: GetCityModel?
+        @Body model: GetCityModel?,
     ): Response<ApiResponse>
 
     @GET("amenities")
@@ -290,13 +313,13 @@ interface ApiInterface {
 
     @POST("vendor/send-otp")
     suspend fun sendOtp(
-        @Body model: SendOtpModel?
+        @Body model: SendOtpModel?,
     ): Response<ApiResponse>
 
 
     @POST("vendor/venue")
     suspend fun addVenue(
-        @Body model: AddVenueModel?
+        @Body model: AddVenueModel?,
     ): Response<ApiResponse>
 
 
@@ -312,13 +335,13 @@ interface ApiInterface {
 
     @POST("vendor/add-court")
     suspend fun addCourt(
-        @Body model: AddCourt?
+        @Body model: AddCourt?,
     ): Response<ApiResponse>
 
     @POST("vendor-slots/weekly")
     suspend fun addWeeklySlot(
         @Header("auth-token") authToken: String?,
-        @Body model: AddWeeklySlotModel?
+        @Body model: AddWeeklySlotModel?,
     ): Response<ApiResponse>
 
 
@@ -327,13 +350,13 @@ interface ApiInterface {
         @Header("auth-token") token: String?,
         @Query("per_page") perPage: Int = 10,
         @Query("page") page: Int = 1,
-        @Query("search") search: String?
+        @Query("search") search: String?,
     ): Response<ApiResponse>
 
 
     @POST("vendor/paid-services")
     suspend fun addPaidServices(
-        @Body model: AddPaidServices?
+        @Body model: AddPaidServices?,
     ): Response<ApiResponse>
 
 
@@ -347,14 +370,14 @@ interface ApiInterface {
 
     @POST("vendor/update-paid-services")
     suspend fun updatePaidServices(
-        @Body model: UpdatePaidService? = null
+        @Body model: UpdatePaidService? = null,
     ): Response<ApiResponse>
 
 
     @DELETE("vendor/paid-services/{id}")
     suspend fun deletePaidServices(
         @Header("auth-token") authToken: String?,
-        @Path("id") venueId: String?
+        @Path("id") venueId: String?,
     ): Response<ApiResponse>
 
     @GET("vendor/myProfile")
@@ -367,20 +390,20 @@ interface ApiInterface {
         @Header("auth-token") token: String? = null,
         @Query("court_id") courtId: Int? = null,
         @Query("from") fromDate: String? = null,
-        @Query("to") toDate: String? = null
+        @Query("to") toDate: String? = null,
     ): Response<ApiResponse>
 
 
     @POST("vendor-slots/overrides")
     suspend fun addNewSlot(
-        @Body model: AddSlotRequest? = null
+        @Body model: AddSlotRequest? = null,
     ): Response<ApiResponse>
 
 
     @POST("vendor/updateProfile")
     suspend fun updateProfile(
         @Header("auth-token") authToken: String?,
-        @Body model: UpdateProfile? = null
+        @Body model: UpdateProfile? = null,
     ): Response<ApiResponse>
 
     @GET("getContactInfo")

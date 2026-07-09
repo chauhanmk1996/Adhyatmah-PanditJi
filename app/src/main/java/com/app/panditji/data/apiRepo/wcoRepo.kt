@@ -27,7 +27,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.Part
 
-class apiRepo(private val apiInterface: ApiInterface, private val prefsHelper: PrefsHelper):
+class apiRepo(private val apiInterface: ApiInterface, private val prefsHelper: PrefsHelper) :
     BaseRepo() {
 
     private fun getBearerToken() = """Bearer ${prefsHelper.authToken}"""
@@ -60,7 +60,7 @@ class apiRepo(private val apiInterface: ApiInterface, private val prefsHelper: P
         role: RequestBody,
         services: List<MultipartBody.Part>,
         language: List<MultipartBody.Part>,
-        referralCode:RequestBody?
+        referralCode: RequestBody?,
     ) = loadData {
         apiInterface.registerUserMultipart(
             firstName, lastName, email, password, gender, phone,
@@ -68,13 +68,14 @@ class apiRepo(private val apiInterface: ApiInterface, private val prefsHelper: P
             gotra, pankti, shakha, veda, sutra, pravar,
             aadhar, dateOfBirth, experience,
             deviceType, deviceToken,
-            image,role,  services, language,referralCode
+            image, role, services, language, referralCode
         )
     }
 
 
     suspend fun loginUser(model: LoginRequest?) =
         loadData { apiInterface.loginUser(model) }
+
     suspend fun loginWithMobile(model: LoginWithMobileRequest?) =
         loadData { apiInterface.loginWithMobile(model) }
 
@@ -95,11 +96,27 @@ class apiRepo(private val apiInterface: ApiInterface, private val prefsHelper: P
     suspend fun getAboutsUs() =
         loadData { apiInterface.getAboutUs() }
 
-    suspend fun getVenuesList(authToken: String, perPage: Int, page: Int, search: String?, latitude: Double, longitude: Double) =
-        loadData { apiInterface.getVenueList(authToken,perPage,page,search,latitude,longitude) }
+    suspend fun getVenuesList(
+        authToken: String,
+        perPage: Int,
+        page: Int,
+        search: String?,
+        latitude: Double,
+        longitude: Double,
+    ) =
+        loadData {
+            apiInterface.getVenueList(
+                authToken,
+                perPage,
+                page,
+                search,
+                latitude,
+                longitude
+            )
+        }
 
-    suspend fun getVenueDetailById(token:String?,venueId:String?) =
-        loadData { apiInterface.getVenueDetailsById(token,venueId) }
+    suspend fun getVenueDetailById(token: String?, venueId: String?) =
+        loadData { apiInterface.getVenueDetailsById(token, venueId) }
 
     suspend fun userLogout(authToken: String) =
         loadData { apiInterface.userLogout(authToken) }
@@ -108,48 +125,67 @@ class apiRepo(private val apiInterface: ApiInterface, private val prefsHelper: P
         loadData { apiInterface.deleteAccount(model) }
 
     suspend fun userProfile(userId: String) =
-        loadData { apiInterface.userProfile( userId) }
+        loadData { apiInterface.userProfile(userId) }
 
-    suspend fun getAllServices() =
-        loadData { apiInterface.getAllServices( ) }
+    suspend fun getAllServices() = loadData { apiInterface.getAllServices() }
 
-    suspend fun uploadImage(@Part file: MultipartBody.Part,
-                            @Part ("customerId") customerId: RequestBody) =
-        loadData { apiInterface.upLoadImg(file,customerId) }
-    suspend fun userUpdateProfile(authToken: String,model:UpdateProfile?) =
+    suspend fun getDesignationList() = loadData { apiInterface.getDesignationList() }
+
+    suspend fun getExperienceList() = loadData { apiInterface.getExperienceList() }
+
+    suspend fun getCountryList() = loadData { apiInterface.getCountryList() }
+
+    suspend fun getStateList(country: String) = loadData { apiInterface.getStateList(country) }
+
+    suspend fun getCityList(state: String) = loadData { apiInterface.getCityList(state) }
+
+    suspend fun uploadImage(
+        @Part file: MultipartBody.Part,
+        @Part("customerId") customerId: RequestBody,
+    ) =
+        loadData { apiInterface.upLoadImg(file, customerId) }
+
+    suspend fun userUpdateProfile(authToken: String, model: UpdateProfile?) =
         loadData { apiInterface.userUpdateProfile(model) }
 
-    suspend fun getAvailableSlots(vendorId:Int?,courtId:Int?,sportId:String?, fromDate:String) =
-        loadData { apiInterface.getAvailableSlots(vendorId, courtId,sportId,fromDate) }
+    suspend fun getAvailableSlots(
+        vendorId: Int?,
+        courtId: Int?,
+        sportId: String?,
+        fromDate: String,
+    ) =
+        loadData { apiInterface.getAvailableSlots(vendorId, courtId, sportId, fromDate) }
 
 //    suspend fun getBookingList(token:String?,filter: String,perPage: Int,page: Int) =
 //        loadData { apiInterface.getBookingList(token,filter,perPage,page) }
 
-    suspend fun getBookings(type:String, token:String?) =
+    suspend fun getBookings(type: String, token: String?) =
         loadData { apiInterface.getBookings(token, type) }
 
-    suspend fun updateBookingStatus(token:String?, request: UpdateBookingStatusRequest) =
+    suspend fun updateBookingStatus(token: String?, request: UpdateBookingStatusRequest) =
         loadData { apiInterface.updateBookingStatus(token, request) }
 
-    suspend fun createUserBooking(model:UserBookingRequest, token:String?) =
-        loadData { apiInterface.createUserBooking(model,token) }
+    suspend fun createUserBooking(model: UserBookingRequest, token: String?) =
+        loadData { apiInterface.createUserBooking(model, token) }
 
-    suspend fun userBookingDetails(request: BookingDetailsRequest, token:String?) =
-        loadData { apiInterface.userBookingDetails(request,token) }
+    suspend fun userBookingDetails(request: BookingDetailsRequest, token: String?) =
+        loadData { apiInterface.userBookingDetails(request, token) }
 
-    suspend fun userSplitPaymentDetails(token:String?, request: BookingDetailsRequest) =
-        loadData { apiInterface.userSplitPaymentDetails(token,request) }
+    suspend fun userSplitPaymentDetails(token: String?, request: BookingDetailsRequest) =
+        loadData { apiInterface.userSplitPaymentDetails(token, request) }
 
-    suspend fun addRateReview(token:String?,request: RatingBarRequest) =
-        loadData { apiInterface.addRateReview(token,request) }
+    suspend fun addRateReview(token: String?, request: RatingBarRequest) =
+        loadData { apiInterface.addRateReview(token, request) }
 
     suspend fun socialContacts() =
-        loadData { apiInterface.socialContacts()
-        }
-    suspend fun customerSupport() =
-        loadData { apiInterface.customerSupport()
+        loadData {
+            apiInterface.socialContacts()
         }
 
+    suspend fun customerSupport() =
+        loadData {
+            apiInterface.customerSupport()
+        }
 
 
     suspend fun sendOtp(model: SendOtpModel?) =
@@ -175,38 +211,38 @@ class apiRepo(private val apiInterface: ApiInterface, private val prefsHelper: P
     suspend fun addCourt(model: AddCourt?) =
         loadData { apiInterface.addCourt(model) }
 
-    suspend fun addWeeklySlot(token:String,model: AddWeeklySlotModel?) =
-        loadData { apiInterface.addWeeklySlot(token,model) }
+    suspend fun addWeeklySlot(token: String, model: AddWeeklySlotModel?) =
+        loadData { apiInterface.addWeeklySlot(token, model) }
 
 
-    suspend fun getVenueList(token:String?,perPage: Int,page: Int,search: String?) =
-        loadData { apiInterface.getVenues(token,perPage,page,search) }
+    suspend fun getVenueList(token: String?, perPage: Int, page: Int, search: String?) =
+        loadData { apiInterface.getVenues(token, perPage, page, search) }
 
     suspend fun addPaidServices(model: AddPaidServices?) =
         loadData { apiInterface.addPaidServices(model) }
 
-    suspend fun getPaidServices(token:String?,court_id:Int?) =
-        loadData { apiInterface.getPaidServices(token,court_id) }
+    suspend fun getPaidServices(token: String?, court_id: Int?) =
+        loadData { apiInterface.getPaidServices(token, court_id) }
 
 
-    suspend fun updatePaidServices(model:UpdatePaidService?) =
+    suspend fun updatePaidServices(model: UpdatePaidService?) =
         loadData { apiInterface.updatePaidServices(model) }
 
-    suspend fun deletePaidServices(token:String?,id:String?) =
-        loadData { apiInterface.deletePaidServices(token,id) }
+    suspend fun deletePaidServices(token: String?, id: String?) =
+        loadData { apiInterface.deletePaidServices(token, id) }
 
-    suspend fun getUserProfile(token:String?) =
+    suspend fun getUserProfile(token: String?) =
         loadData { apiInterface.getUserProfile(token) }
 
-    suspend fun getSlots(token:String?,courtId:Int?,fromDate:String?,toDate:String?) =
+    suspend fun getSlots(token: String?, courtId: Int?, fromDate: String?, toDate: String?) =
         loadData { apiInterface.getSlots(token, courtId, fromDate, toDate) }
 
-    suspend fun addNewSlot(model:AddSlotRequest?) =
+    suspend fun addNewSlot(model: AddSlotRequest?) =
         loadData { apiInterface.addNewSlot(model) }
 
 
-    suspend fun updateProfile(token:String?,model:UpdateProfile?) =
-        loadData { apiInterface.updateProfile(token,model) }
+    suspend fun updateProfile(token: String?, model: UpdateProfile?) =
+        loadData { apiInterface.updateProfile(token, model) }
 
     suspend fun getContactUs() =
         loadData { apiInterface.getContactUs() }

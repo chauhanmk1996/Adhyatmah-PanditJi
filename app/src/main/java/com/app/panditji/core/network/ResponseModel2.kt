@@ -611,29 +611,30 @@ data class UpdatePaidService(
 @Keep
 @Parcelize
 data class UpdateProfile(
-    val firstName: String?=null,
-    val lastName: String?=null,
-    val gender: String?=null,
-    val email: String?=null,
-    val phone: String?=null,
     var image: String?=null,
     val about: String?=null,
+    val firstName: String?=null,
+    val lastName: String?=null,
+    val phone: String?=null,
+    val email: String?=null,
+    val dateOfBirth: String?=null,
+    val gender: String?=null,
     val gotra: String?=null,
     val pravar: String?=null,
-    val dateOfBirth: String?=null,
     val veda: String?=null,
-    val pankti: String?=null,
     val shakha: String?=null,
+    val pankti: String?=null,
     val sutra: String?=null,
+    var aadhar: String?=null,
+    val services: List<String>?=null,
+    val language: List<String>?=null,
+    val experience: String?=null,
     val address: String?=null,
+    val country: String?=null,
     val state: String?=null,
     val city: String?=null,
     val zip: String?=null,
-    val country: String?=null,
-    var aadhar: String?=null,
     var accessToken: String?=null,
-    val language: List<String>?=null,
-    val services: List<String>?=null
 ):Parcelable
 
 

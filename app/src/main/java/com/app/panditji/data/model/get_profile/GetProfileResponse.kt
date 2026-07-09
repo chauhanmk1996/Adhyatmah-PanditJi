@@ -24,6 +24,7 @@ data class GetProfileResponse(
             val email: String,
             val image: Image,
             val aadhar: String,
+            val experience: String?=null,
             val firstName: String,
             val id: String,
             val lastName: String,

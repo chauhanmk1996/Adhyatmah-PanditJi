@@ -1,4 +1,5 @@
 package com.app.panditji.data.apiVm
+
 import AddCourt
 import AddPaidServices
 import AddSlotRequest
@@ -26,37 +27,37 @@ import okhttp3.RequestBody
 import retrofit2.http.Part
 
 
-class apiVm (private val apiRepo: apiRepo): ViewModel() {
+class apiVm(private val apiRepo: apiRepo) : ViewModel() {
 
     fun registerUserMultipart(
+        image: RequestBody,
+        about: RequestBody,
         firstName: RequestBody,
         lastName: RequestBody,
+        phone: RequestBody,
         email: RequestBody,
         password: RequestBody,
-        gender: RequestBody,
-        phone: RequestBody,
-        about: RequestBody,
-        address: RequestBody,
-        city: RequestBody,
-        state: RequestBody,
-        country: RequestBody,
-        zip: RequestBody,
-        gotra: RequestBody,
-        pankti: RequestBody,
-        shakha: RequestBody,
-        veda: RequestBody,
-        sutra: RequestBody,
-        pravar: RequestBody,
-        aadhar: RequestBody,
         dateOfBirth: RequestBody,
-        experience: RequestBody,
-        deviceType: RequestBody,
-        deviceToken: RequestBody,
-        image: RequestBody,
-        role: RequestBody,
+        gender: RequestBody,
+        gotra: RequestBody,
+        pravar: RequestBody,
+        veda: RequestBody,
+        shakha: RequestBody,
+        pankti: RequestBody,
+        sutra: RequestBody,
+        aadhar: RequestBody,
         services: List<MultipartBody.Part>,
         language: List<MultipartBody.Part>,
-        referralCode:RequestBody?
+        experience: RequestBody,
+        address: RequestBody,
+        country: RequestBody,
+        state: RequestBody,
+        city: RequestBody,
+        zip: RequestBody,
+        referralCode: RequestBody?,
+        role: RequestBody,
+        deviceType: RequestBody,
+        deviceToken: RequestBody,
     ) = liveData {
         emit(
             apiRepo.registerUserMultipart(
@@ -65,7 +66,7 @@ class apiVm (private val apiRepo: apiRepo): ViewModel() {
                 gotra, pankti, shakha, veda, sutra, pravar,
                 aadhar, dateOfBirth, experience,
                 deviceType, deviceToken,
-                image,role,  services, language,referralCode
+                image, role, services, language, referralCode
             ).value
         )
     }
@@ -75,74 +76,96 @@ class apiVm (private val apiRepo: apiRepo): ViewModel() {
     private fun String.toRequestBody(): RequestBody =
         RequestBody.create("text/plain".toMediaTypeOrNull(), this)
 
-    fun loginUser(model : LoginRequest?) =
+    fun loginUser(model: LoginRequest?) =
         liveData { emit(apiRepo.loginUser(model).value) }
 
-    fun loginWithMobile(model : LoginWithMobileRequest?) =
+    fun loginWithMobile(model: LoginWithMobileRequest?) =
         liveData { emit(apiRepo.loginWithMobile(model).value) }
 
     fun getBanner() =
         liveData { emit(apiRepo.getBanner().value) }
 
-    fun verifyOtp(model : RegistrationModel?) =
+    fun verifyOtp(model: RegistrationModel?) =
         liveData {
-            emit(apiRepo.verifyOtp(model).value) }
+            emit(apiRepo.verifyOtp(model).value)
+        }
 
-    fun reSendOtp(model : SendOtpModel?) =
+    fun reSendOtp(model: SendOtpModel?) =
         liveData {
-            emit(apiRepo.reSendOtp(model).value) }
+            emit(apiRepo.reSendOtp(model).value)
+        }
 
     fun getDeleteAccount(model: DeleteRequest) =
         liveData {
-            emit(apiRepo.getDeleteAccount(model).value) }
+            emit(apiRepo.getDeleteAccount(model).value)
+        }
 
 
     fun getAboutsUs() =
         liveData { emit(apiRepo.getAboutsUs().value) }
 
-    fun getVenuesList(authToken: String, perPage: Int, page: Int, search: String?, lat: Double, long: Double) =
-        liveData { emit(apiRepo.getVenuesList(authToken,perPage,page,search,lat,long).value) }
+    fun getVenuesList(
+        authToken: String,
+        perPage: Int,
+        page: Int,
+        search: String?,
+        lat: Double,
+        long: Double,
+    ) =
+        liveData { emit(apiRepo.getVenuesList(authToken, perPage, page, search, lat, long).value) }
 
-    fun getVenueDetailById(token:String?,venueId:String?) =
-        liveData { emit(apiRepo.getVenueDetailById(token,venueId).value) }
+    fun getVenueDetailById(token: String?, venueId: String?) =
+        liveData { emit(apiRepo.getVenueDetailById(token, venueId).value) }
 
     fun userLogout(authToken: String) =
         liveData { emit(apiRepo.userLogout(authToken).value) }
 
     fun userProfile(userId: String) =
-        liveData { emit(apiRepo.userProfile( userId).value) }
+        liveData { emit(apiRepo.userProfile(userId).value) }
 
-    fun getAllServices() =
-        liveData { emit(apiRepo.getAllServices().value) }
+    fun getAllServices() = liveData { emit(apiRepo.getAllServices().value) }
 
-    fun uploadImage(@Part file: MultipartBody.Part,
-                    @Part ("customerId") customerId: RequestBody) =
+    fun getDesignationList() = liveData { emit(apiRepo.getDesignationList().value) }
+
+    fun getExperienceList() = liveData { emit(apiRepo.getExperienceList().value) }
+
+    fun getCountryList() = liveData { emit(apiRepo.getCountryList().value) }
+
+    fun getStateList(country: String) = liveData { emit(apiRepo.getStateList(country).value) }
+
+    fun getCityList(state: String) = liveData { emit(apiRepo.getCityList(state).value) }
+
+    fun uploadImage(
+        @Part file: MultipartBody.Part,
+        @Part("customerId") customerId: RequestBody,
+    ) =
         liveData { emit(apiRepo.uploadImage(file, customerId).value) }
-    fun userUpdateProfile(authToken: String, model:UpdateProfile?) =
+
+    fun userUpdateProfile(authToken: String, model: UpdateProfile?) =
         liveData { emit(apiRepo.userUpdateProfile(authToken, model).value) }
 
 
-    fun getAvailableSlots(vendorId: Int?, courtId:Int?, sportId: String?,fromDate:String) =
-        liveData { emit(apiRepo.getAvailableSlots(vendorId,courtId,sportId,fromDate).value) }
+    fun getAvailableSlots(vendorId: Int?, courtId: Int?, sportId: String?, fromDate: String) =
+        liveData { emit(apiRepo.getAvailableSlots(vendorId, courtId, sportId, fromDate).value) }
 
-    fun getBookings(type:String, authToken: String) =
-        liveData { emit(apiRepo.getBookings(type, authToken,).value) }
+    fun getBookings(type: String, authToken: String) =
+        liveData { emit(apiRepo.getBookings(type, authToken).value) }
 
     fun updateBookingStatus(authToken: String, request: UpdateBookingStatusRequest) =
-        liveData { emit(apiRepo.updateBookingStatus(authToken, request,).value) }
+        liveData { emit(apiRepo.updateBookingStatus(authToken, request).value) }
 
 
-    fun createUserBooking(request:UserBookingRequest, authToken: String) =
-        liveData { emit(apiRepo.createUserBooking(request,authToken).value) }
+    fun createUserBooking(request: UserBookingRequest, authToken: String) =
+        liveData { emit(apiRepo.createUserBooking(request, authToken).value) }
 
-    fun userBookingDetails(request:BookingDetailsRequest, authToken: String) =
-        liveData { emit(apiRepo.userBookingDetails(request,authToken).value) }
+    fun userBookingDetails(request: BookingDetailsRequest, authToken: String) =
+        liveData { emit(apiRepo.userBookingDetails(request, authToken).value) }
 
-    fun userSplitPaymentDetails(authToken: String, request:BookingDetailsRequest,) =
-        liveData { emit(apiRepo.userSplitPaymentDetails(authToken,request).value) }
+    fun userSplitPaymentDetails(authToken: String, request: BookingDetailsRequest) =
+        liveData { emit(apiRepo.userSplitPaymentDetails(authToken, request).value) }
 
     fun addRateReview(authToken: String, request: RatingBarRequest) =
-        liveData { emit(apiRepo.addRateReview(authToken,request).value) }
+        liveData { emit(apiRepo.addRateReview(authToken, request).value) }
 
     fun socialContacts() =
         liveData { emit(apiRepo.socialContacts().value) }
@@ -151,65 +174,65 @@ class apiVm (private val apiRepo: apiRepo): ViewModel() {
         liveData { emit(apiRepo.customerSupport().value) }
 
 
-    fun sendOtp(model : SendOtpModel?) =
+    fun sendOtp(model: SendOtpModel?) =
         liveData { emit(apiRepo.sendOtp(model).value) }
 
 
-    fun getStateList(model : GetStateModel?) =
+    fun getStateList(model: GetStateModel?) =
         liveData { emit(apiRepo.getStateList(model).value) }
 
-    fun getCityList(model : GetCityModel?) =
+    fun getCityList(model: GetCityModel?) =
         liveData { emit(apiRepo.getCityList(model).value) }
 
 
     fun getAmmenties() =
         liveData { emit(apiRepo.getAmmenties().value) }
 
-    fun addVenue(model : AddVenueModel?) =
+    fun addVenue(model: AddVenueModel?) =
         liveData { emit(apiRepo.addVenue(model).value) }
-
 
 
     fun getSportsList() =
         liveData { emit(apiRepo.getSportList().value) }
 
-    fun addCourt(model : AddCourt?) =
+    fun addCourt(model: AddCourt?) =
         liveData { emit(apiRepo.addCourt(model).value) }
 
-    fun addWeeklySlot(token:String,model : AddWeeklySlotModel?) =
-        liveData { emit(apiRepo.addWeeklySlot(token,model).value) }
+    fun addWeeklySlot(token: String, model: AddWeeklySlotModel?) =
+        liveData { emit(apiRepo.addWeeklySlot(token, model).value) }
 
-    fun getVenueList(token:String?,perPage: Int,page: Int,search: String?) =
-        liveData { emit(apiRepo.getVenueList(token,perPage,page,search).value) }
+    fun getVenueList(token: String?, perPage: Int, page: Int, search: String?) =
+        liveData { emit(apiRepo.getVenueList(token, perPage, page, search).value) }
 
 
-    fun addPaidServices(model : AddPaidServices?) =
+    fun addPaidServices(model: AddPaidServices?) =
         liveData { emit(apiRepo.addPaidServices(model).value) }
 
-    fun getPaidServices(token:String,courtId:Int?) =
-        liveData { emit(apiRepo.getPaidServices(token,courtId).value) }
+    fun getPaidServices(token: String, courtId: Int?) =
+        liveData { emit(apiRepo.getPaidServices(token, courtId).value) }
 
 
-    fun updatePaidServices(model:UpdatePaidService?) =
+    fun updatePaidServices(model: UpdatePaidService?) =
         liveData { emit(apiRepo.updatePaidServices(model).value) }
 
-    fun deletePaidServices(token:String?,id:String?) =
-        liveData { emit(apiRepo.deletePaidServices(token,id).value) }
+    fun deletePaidServices(token: String?, id: String?) =
+        liveData { emit(apiRepo.deletePaidServices(token, id).value) }
 
-    fun getUserDetail(token:String?) =
+    fun getUserDetail(token: String?) =
         liveData { emit(apiRepo.getUserProfile(token).value) }
 
-    fun getSlots(token:String?,courtId:Int?,fromDate:String?,toDate:String?) =
-        liveData { emit(apiRepo.getSlots(token,courtId,fromDate,toDate).value) }
+    fun getSlots(token: String?, courtId: Int?, fromDate: String?, toDate: String?) =
+        liveData { emit(apiRepo.getSlots(token, courtId, fromDate, toDate).value) }
 
-    fun addNewSlot(model:AddSlotRequest?) =
+    fun addNewSlot(model: AddSlotRequest?) =
         liveData { emit(apiRepo.addNewSlot(model).value) }
 
-    fun updateProfile(token:String?,model:UpdateProfile?) =
-        liveData { emit(apiRepo.updateProfile(token,model).value) }
+    fun updateProfile(token: String?, model: UpdateProfile?) =
+        liveData { emit(apiRepo.updateProfile(token, model).value) }
 
     fun getContactUs() =
         liveData { emit(apiRepo.getContactUs().value) }
+
     fun getPolicies() =
         liveData { emit(apiRepo.getPolicies().value) }
 
@@ -217,5 +240,5 @@ class apiVm (private val apiRepo: apiRepo): ViewModel() {
         liveData { emit(apiRepo.getFaqs(role).value) }
 
     fun getPanditRevenue(vendorId: String) =
-        liveData { emit(apiRepo.getPanditRevenue(vendorId ).value) }
+        liveData { emit(apiRepo.getPanditRevenue(vendorId).value) }
 }
