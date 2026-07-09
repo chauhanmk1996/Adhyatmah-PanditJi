@@ -84,6 +84,8 @@
                     android:hint="@string/select_your_designation"
                     android:imeOptions="actionDone"
                     android:minHeight="55dp"
+                    android:maxLines="3"
+                    android:ellipsize="end"
                     android:padding="10dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey"
@@ -470,6 +472,8 @@
                     android:imeOptions="actionDone"
                     android:minHeight="55dp"
                     android:padding="10dp"
+                    android:maxLines="3"
+                    android:ellipsize="end"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey"
                     android:textSize="@dimen/sixteen_sp" />
@@ -495,6 +499,8 @@
                     android:imeOptions="actionDone"
                     android:minHeight="55dp"
                     android:padding="10dp"
+                    android:maxLines="3"
+                    android:ellipsize="end"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey"
                     android:textSize="@dimen/sixteen_sp" />
